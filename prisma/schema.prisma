@@ -1,0 +1,143 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Category {
+  id          String                @id
+  slug        String                @unique
+  enabled     Boolean               @default(true)
+  sortOrder   Int                   @default(0)
+  createdAt   DateTime              @default(now())
+  updatedAt   DateTime              @updatedAt
+  translations CategoryTranslation[]
+  topics      Topic[]
+}
+
+model CategoryTranslation {
+  id          String   @id @default(cuid())
+  categoryId  String
+  locale      String
+  name        String
+  description String?
+  category    Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+
+  @@unique([categoryId, locale])
+  @@index([locale])
+}
+
+model Topic {
+  id           String              @id
+  categoryId   String
+  sitting      String?
+  date         String?
+  published    Boolean             @default(false)
+  sortOrder    Int                 @default(0)
+  createdAt    DateTime            @default(now())
+  updatedAt    DateTime            @updatedAt
+  category     Category            @relation(fields: [categoryId], references: [id], onDelete: Restrict)
+  translations TopicTranslation[]
+
+  @@index([categoryId, published, sortOrder])
+}
+
+model TopicTranslation {
+  id                    String           @id @default(cuid())
+  topicId               String
+  locale                String
+
+  title                 String
+  description           String?
+  introduction          String?
+  body                  String?
+  contentBlocks         Json?
+  purpose               String?
+  spiritualGoal         String?
+  materials             Json?
+  instructions          Json?
+  precautions           Json?
+  healthNoticeOverride  String?
+
+  urduText              String?
+  urdu                  String?
+  englishDescription    String?
+  displayTitle          String?
+  nameDetails           Json?
+  tags                  String[]         @default([])
+  legacyData            Json?
+
+  createdAt             DateTime         @default(now())
+  updatedAt             DateTime         @updatedAt
+
+  topic                 Topic            @relation(fields: [topicId], references: [id], onDelete: Cascade)
+  references            TopicReference[]
+  revisions             TopicRevision[]
+
+  @@unique([topicId, locale])
+  @@index([locale, title])
+}
+
+model TopicReference {
+  id            String           @id @default(cuid())
+  translationId String
+  title         String?
+  citation      String?
+  url           String?
+  sortOrder     Int              @default(0)
+  translation   TopicTranslation @relation(fields: [translationId], references: [id], onDelete: Cascade)
+
+  @@index([translationId, sortOrder])
+}
+
+model TopicRevision {
+  id            String           @id @default(cuid())
+  translationId String
+  changedById   String?
+  snapshot      Json
+  changeNote    String?
+  createdAt     DateTime         @default(now())
+
+  translation   TopicTranslation @relation(fields: [translationId], references: [id], onDelete: Cascade)
+  changedBy     User?            @relation("RevisionAuthor", fields: [changedById], references: [id], onDelete: SetNull)
+
+  @@index([translationId, createdAt])
+}
+
+model User {
+  id                String         @id @default(cuid())
+  email             String         @unique
+  name              String?
+  passwordHash      String?
+  role              String         @default("EDITOR")
+  active            Boolean        @default(true)
+  createdAt         DateTime       @default(now())
+  updatedAt         DateTime       @updatedAt
+  revisions         TopicRevision[] @relation("RevisionAuthor")
+  auditLogs         AuditLog[]
+}
+
+model AuditLog {
+  id          String   @id @default(cuid())
+  userId      String?
+  action      String
+  entityType  String
+  entityId    String?
+  details     Json?
+  createdAt   DateTime @default(now())
+
+  user        User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([entityType, entityId, createdAt])
+  @@index([userId, createdAt])
+}
+
+model SiteSetting {
+  key         String   @id
+  value       Json
+  updatedAt   DateTime @updatedAt
+}

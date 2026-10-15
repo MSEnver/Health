@@ -3,13 +3,13 @@ import { useEffect, useMemo, useState } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import { ArrowRight, HeartPulse, Leaf, Search, ShieldCheck, Sparkles, X } from 'lucide-react';
 import type { HealthNote } from '@/lib/types';
-import { getHealthNotes } from '@/lib/content';
+
 import { isRtlLocale } from '@/lib/locale';
 import { ContentCard } from './content-card';
 const featuredIds = ['h-1', 'h-2', 'sp-1', 'hom-1', 'j-1', 'c-3'];
-export function Dashboard() {
+export function Dashboard({ initialNotes }: { initialNotes: HealthNote[] }) {
   const locale = useLocale(); const t = useTranslations();
-  const source = getHealthNotes(locale);
+  const source = initialNotes;
   const [query, setQuery] = useState(''); const [category, setCategory] = useState('all'); const [sitting, setSitting] = useState('all');
   const [favorites, setFavorites] = useState<string[]>([]); const [showFavorites, setShowFavorites] = useState(false); const [selected, setSelected] = useState<HealthNote | null>(null);
   const [stateLoaded, setStateLoaded] = useState(false);
