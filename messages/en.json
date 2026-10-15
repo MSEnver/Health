@@ -62,7 +62,8 @@
     "favorites": "My favorites",
     "sittings": "Browse by sitting",
     "index": "A–Z index",
-    "all": "All entries"
+    "all": "All entries",
+    "sittingLabel": "Sitting"
   },
   "footer": {
     "trusted": "Knowledge archive",
