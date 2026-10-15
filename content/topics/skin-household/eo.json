@@ -1,0 +1,50 @@
+[
+  {
+    "id": "s-5",
+    "sitting": "Sitting 6",
+    "date": "Sept 20, 2026",
+    "category": "Haŭto kaj hejmo",
+    "title": "Kuirado per saturitaj bestaj grasoj kaj butero por seka vintra haŭto",
+    "description": "Por vintra haŭtsekeco, la tradicia konsilo estas kuiri viandon en ĝia propra graso aŭ en klarigita butero, je malalta varmego sen aldoni akvon. La aserto, ke bestaj grasoj malaltigas malbonan kolesterolon, ne estu traktata kiel establita medicina fakto.",
+    "tags": [
+      "dry skin",
+      "saturated fats",
+      "desi ghee",
+      "winter skin"
+    ],
+    "body": "Por vintra haŭtsekeco, la tradicia konsilo estas kuiri viandon en ĝia propra graso aŭ en klarigita butero, je malalta varmego sen aldoni akvon. La aserto, ke bestaj grasoj malaltigas malbonan kolesterolon, ne estu traktata kiel establita medicina fakto.",
+    "urduText": "سردیوں کی خشکی کے لیے کھانوں میں دیسی گھی اور چربی کا استعمال کریں، پانی کے بغیر ہلکی آنچ پر پکائیں۔"
+  },
+  {
+    "id": "ls-8",
+    "sitting": "Sitting 7",
+    "date": "Oct 11, 2026",
+    "category": "Haŭto kaj hejmo",
+    "title": "Akvo el tradicia argila poto kontraŭ friduja akvo",
+    "description": "La teksto rekomendas trinki akvon konservitan en tradicia argila poto anstataŭ tre malvarman fridujan akvon. Argilaj potoj povas malvarmigi akvon, sed asertoj pri ekvilibrigo de interna korpa varmo ne estas pruvita kuracado.",
+    "tags": [
+      "clay pot water",
+      "ghata water",
+      "fridge water warning",
+      "natural cooling"
+    ],
+    "body": "La teksto rekomendas trinki akvon konservitan en tradicia argila poto anstataŭ tre malvarman fridujan akvon. Argilaj potoj povas malvarmigi akvon, sed asertoj pri ekvilibrigo de interna korpa varmo ne estas pruvita kuracado.",
+    "urduText": "فریج اور منرل واٹر کے بجائے مٹی کے گھڑے کا قدرتی پانی پئیں۔"
+  },
+  {
+    "id": "ls-9",
+    "sitting": "Sitting 7",
+    "date": "Oct 11, 2026",
+    "category": "Haŭto kaj hejmo",
+    "title": "Memfarita forta lavpulvoro kaj likva ŝampuo",
+    "description": "La proponita miksaĵo por lavpulvoro konsistas el 10 kg da lavpulvoro, 3 kg da blanka lavsodo, 3 kg da nigra oleo kaj 3 kg da salo. Por likva ŝampuo estas menciitaj SLS/SLES-bazo, vitamino E kaj glicerino. Konsultu fakulon pri sekura manipulado kaj taŭgeco de kemiaĵoj.",
+    "tags": [
+      "diy formula",
+      "washing powder",
+      "laundry powder",
+      "shampoo formula"
+    ],
+    "body": "La proponita miksaĵo por lavpulvoro konsistas el 10 kg da lavpulvoro, 3 kg da blanka lavsodo, 3 kg da nigra oleo kaj 3 kg da salo. Por likva ŝampuo estas menciitaj SLS/SLES-bazo, vitamino E kaj glicerino. Konsultu fakulon pri sekura manipulado kaj taŭgeco de kemiaĵoj.",
+    "urduText": "سرف ۱۰ کلو + وائٹ سوڈا ۳ کلو + بلیک آئل ۳ کلو + نمک ۳ کلو ملا کر واشنگ پاؤڈر بنائیں۔"
+  }
+]
