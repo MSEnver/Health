@@ -62,7 +62,8 @@
     "favorites": "Miaj plej ŝatataj",
     "sittings": "Foliumi laŭ sesio",
     "index": "Alfabeta indekso",
-    "all": "Ĉiuj eroj"
+    "all": "Ĉiuj eroj",
+    "sittingLabel": "Sesio"
   },
   "footer": {
     "trusted": "Scio-arkivo",
