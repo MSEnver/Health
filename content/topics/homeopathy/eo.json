@@ -1,0 +1,70 @@
+[
+  {
+    "id": "hom-1",
+    "sitting": "Sitting 3",
+    "date": "June 21 / 27",
+    "category": "Homeopatio",
+    "title": "Arnica montana: traŭmato, muskola doloro kaj skalpa cirkulado",
+    "description": "En homeopatio, Arnica montana estas prezentata por fizika ŝoko, kontuzoj, muskola streĉo kaj mikrocirkulado en la skalpo. Fidindaj sciencaj pruvoj pri la efikeco de homeopatio estas limigitaj.",
+    "tags": [
+      "arnica",
+      "homeopathy",
+      "trauma",
+      "muscle pain",
+      "scalp circulation"
+    ],
+    "body": "En homeopatio, Arnica montana estas prezentata por fizika ŝoko, kontuzoj, muskola streĉo kaj mikrocirkulado en la skalpo. Fidindaj sciencaj pruvoj pri la efikeco de homeopatio estas limigitaj.",
+    "urduText": "آرنیکا مونٹانا - چوٹ، پٹھوں کا درد اور سر کی جلد میں خون کی گردش۔"
+  },
+  {
+    "id": "hom-2",
+    "sitting": "Sitting 3",
+    "date": "June 21 / 27",
+    "category": "Homeopatio",
+    "title": "Nux vomica: digestaj problemoj, kemiaĵoj kaj stres-rilata acideco",
+    "description": "En homeopatio, Nux vomica estas prezentata por digestaj perturboj, konstipo, zorgoj pri kemiaj produktoj kaj stomaka acideco ligita al streso. Ĝi ne estu uzata kiel anstataŭaĵo de pruvita medicina kuracado.",
+    "tags": [
+      "nux vomica",
+      "homeopathy",
+      "digestion",
+      "detox",
+      "acidity"
+    ],
+    "body": "En homeopatio, Nux vomica estas prezentata por digestaj perturboj, konstipo, zorgoj pri kemiaj produktoj kaj stomaka acideco ligita al streso. Ĝi ne estu uzata kiel anstataŭaĵo de pruvita medicina kuracado.",
+    "urduText": "نکس وومیکا - معدے کی خرابی، کیمیکل شیمپو اور دوائیوں کے بعد۔"
+  },
+  {
+    "id": "hom-3",
+    "sitting": "Sitting 4",
+    "date": "July 04 / 05",
+    "category": "Homeopatio",
+    "title": "Rhus toxicodendron: artikodoloro, rigideco kaj sciatiko",
+    "description": "En homeopatio, Rhus toxicodendron estas proponata por artikaj inflamoj, rigideco kiu laŭdire pliboniĝas per milda moviĝo, sciatiko kaj tendenodoloro. Fortaj sciencaj pruvoj pri ĝia efikeco mankas.",
+    "tags": [
+      "rhus tox",
+      "homeopathy",
+      "joint pain",
+      "sciatica",
+      "stiffness"
+    ],
+    "body": "En homeopatio, Rhus toxicodendron estas proponata por artikaj inflamoj, rigideco kiu laŭdire pliboniĝas per milda moviĝo, sciatiko kaj tendenodoloro. Fortaj sciencaj pruvoj pri ĝia efikeco mankas.",
+    "urduText": "رس ٹاکس - جوڑوں کا درد، جکڑن اور سائیٹیکا۔"
+  },
+  {
+    "id": "hom-4",
+    "sitting": "Sitting 5",
+    "date": "July 11 / 12",
+    "category": "Homeopatio",
+    "title": "Sulphur: seka haŭto, ekzemo kaj skalpa iritiĝo",
+    "description": "En homeopatio, Sulphur estas prezentata por longdaŭraj haŭtaj problemoj, vintra deskvamiĝo, ekzemo kaj intensa skalpa jukado aŭ caspaĵo. Konsultu sanprofesiulon pri severaj aŭ persistaj simptomoj.",
+    "tags": [
+      "sulphur",
+      "homeopathy",
+      "skin care",
+      "dandruff",
+      "eczema"
+    ],
+    "body": "En homeopatio, Sulphur estas prezentata por longdaŭraj haŭtaj problemoj, vintra deskvamiĝo, ekzemo kaj intensa skalpa jukado aŭ caspaĵo. Konsultu sanprofesiulon pri severaj aŭ persistaj simptomoj.",
+    "urduText": "سلفر - جلد کی خشکی، خارش اور خارش زدہ سکرائی۔"
+  }
+]
