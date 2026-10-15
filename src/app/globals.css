@@ -13,3 +13,40 @@
 @media(max-width:900px){.header-inner{gap:16px}.brand{min-width:auto}.brand small{display:none}.main-nav{gap:15px}.hero-copy{padding:34px 30px 70px}.hero-search{left:30px;right:30px}.category-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.article-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.filters-row{align-items:flex-start;flex-direction:column}.sitting-select{max-width:none;width:100%}}
 @media(max-width:620px){.app-main,.header-inner{width:calc(100% - 28px)}.header-inner{height:auto;min-height:68px;flex-wrap:wrap;padding:11px 0;gap:10px}.brand{flex:1}.brand strong{font-size:17px}.main-nav{order:3;overflow:auto;width:100%;padding:3px 0 6px;gap:20px}.header-actions{gap:5px}.theme-control,.language-control{padding:0 7px;height:32px}.theme-control select{max-width:94px}.language-control select{max-width:69px}.hero-section{grid-template-columns:1fr;margin-top:15px;min-height:425px}.hero-copy{padding:25px 22px 92px}.hero-copy h1{font-size:38px;margin-top:15px}.hero-copy p{font-size:12px}.hero-tags{margin-top:16px}.hero-tags button{font-size:9px;padding:6px 9px}.hero-art{position:absolute;right:0;bottom:55px;width:145px;height:150px;min-height:0;opacity:.25;pointer-events:none}.hero-plant{right:0;top:20px;transform:scale(.75)}.hero-note{display:none}.hero-search{left:13px;right:13px;bottom:13px;height:49px;padding-left:12px;gap:8px}.hero-search input{font-size:11px}.search-submit{padding:11px 12px;font-size:10px}.section-block{margin-bottom:30px}.section-heading h2{font-size:23px}.category-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.category-card{padding:12px 5px;min-height:114px}.category-icon{width:41px;height:41px}.category-label{font-size:10px}.archive-section{padding:15px;border-radius:17px}.archive-section .section-heading{align-items:flex-start;flex-direction:column}.archive-section .outline-button{align-self:stretch;justify-content:center}.filter-pills{gap:6px}.filter-pills button{padding:7px 9px;font-size:9px}.article-grid{grid-template-columns:1fr;gap:12px}.article-art{height:95px}.content-card-body{padding:13px}.content-card h3{min-height:0}.content-card p{min-height:0;-webkit-line-clamp:3}.lower-grid{grid-template-columns:1fr;gap:12px}.quick-panel,.featured-panel{padding:18px}.trust-strip{grid-template-columns:repeat(2,minmax(0,1fr));gap:0;padding:12px}.trust-strip>div{padding:13px 6px;border-bottom:1px solid var(--border)}.trust-strip>div:nth-child(2){border-right:0}.trust-strip>div:nth-child(n+3){border-bottom:0}.detail-modal{padding:19px;border-radius:18px}.detail-modal h2{font-size:22px}.name-details>div{grid-template-columns:100px 1fr}.hero-copy h1 br{display:block}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+
+
+/* Shared content rhythm and typography: keep card and detail views consistent. */
+.content-card-body{padding:18px;display:flex;flex-direction:column;min-width:0}
+.content-card h3{line-height:1.7;overflow-wrap:anywhere}
+.content-card p{line-height:1.9;overflow-wrap:anywhere}
+.card-actions{margin-top:auto;padding-top:13px}
+.detail-modal{padding:clamp(22px,3vw,34px);line-height:1.8}
+.detail-modal h2{font-family:inherit;line-height:1.9;overflow-wrap:anywhere}
+.detail-body{line-height:2.1;overflow-wrap:anywhere}
+.detail-callout p,.health-disclaimer p{line-height:1.9;overflow-wrap:anywhere}
+:root[lang="ur"] body,
+:root[lang="ur"] button,
+:root[lang="ur"] input,
+:root[lang="ur"] select,
+:root[lang="ur"] textarea{font-family:var(--urdu-font),Tahoma,Arial,sans-serif}
+:root[lang="ur"] .content-card-body{padding:18px 18px 17px}
+:root[lang="ur"] .content-card h3{font-size:15px;line-height:2.25;letter-spacing:0;display:block;min-height:0;overflow:visible;margin:12px 0 8px}
+:root[lang="ur"] .content-card p{font-size:13px;line-height:2.35;display:block;min-height:0;overflow:visible;-webkit-line-clamp:unset}
+:root[lang="ur"] .article-meta{font-size:11px;line-height:2}
+:root[lang="ur"] .text-action{font-size:13px;line-height:2}
+:root[lang="ur"] .detail-modal{line-height:2.2}
+:root[lang="ur"] .detail-modal h2{font-family:var(--urdu-font),Tahoma,Arial,sans-serif;font-size:clamp(22px,3vw,30px);line-height:2.25;letter-spacing:0;margin:14px 0 18px}
+:root[lang="ur"] .detail-body{font-size:16px;line-height:2.55;margin:24px 0}
+:root[lang="ur"] .detail-callout strong,
+:root[lang="ur"] .health-disclaimer strong{font-size:14px;line-height:2.2}
+:root[lang="ur"] .detail-callout p,
+:root[lang="ur"] .health-disclaimer p{font-size:13px;line-height:2.35}
+:root[lang="ur"] .modal-topline{line-height:2.1}
+@media(max-width:620px){
+  .content-card-body{padding:16px}
+  :root[lang="ur"] .content-card-body{padding:16px}
+  :root[lang="ur"] .content-card h3{font-size:15px;line-height:2.2}
+  :root[lang="ur"] .content-card p{font-size:13px;line-height:2.3}
+  :root[lang="ur"] .detail-modal h2{font-size:22px;line-height:2.2}
+  :root[lang="ur"] .detail-body{font-size:15px;line-height:2.45}
+}
