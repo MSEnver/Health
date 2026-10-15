@@ -1,0 +1,88 @@
+[
+  {
+    "id": "h-1",
+    "sitting": "Sitting 6",
+    "date": "Sept 20, 2026",
+    "category": "Hair",
+    "title": "Internal Root Nourishment via Fresh Milk Consumption First",
+    "description": "Treating hair loss and balding cannot be achieved by topical oil application alone. Internal root nourishment is mandatory. Drinking fresh milk daily supplies necessary proteins and lipids that fortify hair follicles internally before applying topical mustard oil.",
+    "tags": [
+      "hair loss",
+      "milk for hair",
+      "hair roots",
+      "mustard oil",
+      "balding",
+      "sitting 6"
+    ],
+    "body": "Treating hair loss and balding cannot be achieved by topical oil application alone. Internal root nourishment is mandatory. Drinking fresh milk daily supplies necessary proteins and lipids that fortify hair follicles internally before applying topical mustard oil.",
+    "urduText": "بال گرنے کا علاج صرف اوپر سے تیل لگانے سے نہیں ہوتا، پہلے روزانہ تازہ دودھ پی کر بالوں کی جڑوں کو اندر سے مضبوط کریں، پھر سرسوں کا تیل لگائیں۔"
+  },
+  {
+    "id": "h-2",
+    "sitting": "Sitting 6",
+    "date": "Sept 20, 2026",
+    "category": "Hair",
+    "title": "Onion Juice (Piyaz ka Arq) & Kalonji/Mustard Oil Massage for Balding",
+    "description": "Extracting fresh onion juice (Piyaz ka Arq) combined with Kalonji (Black Seed) oil and pure mustard oil stimulates blood circulation in scalp tissue, reactivates dormant hair follicles, and combats baldness.",
+    "tags": [
+      "onion juice",
+      "kalonji oil",
+      "balding",
+      "hair growth",
+      "scalp massage",
+      "sitting 6"
+    ],
+    "body": "Extracting fresh onion juice (Piyaz ka Arq) combined with Kalonji (Black Seed) oil and pure mustard oil stimulates blood circulation in scalp tissue, reactivates dormant hair follicles, and combats baldness.",
+    "urduText": "پیاز کا رس نکال کر کلونجی اور سرسوں کے تیل کے ساتھ سر کی جلد پر مساج کریں، یہ گنج پن ختم کرنے اور نئے بال اگانے کے لیے مفید ہے۔"
+  },
+  {
+    "id": "h-3",
+    "sitting": "Sitting 6",
+    "date": "Sept 20, 2026",
+    "category": "Hair",
+    "title": "Natural Scalp Washing (Dahi/Lassi & Herbal Reetha/Amla) vs Chemical Shampoos",
+    "description": "Completely eliminate commercial chemical shampoos as they strip natural oils and exacerbate scalp dryness/dandruff (Sikri/Khushki). Wash hair using fresh yoghurt (Dahi), sour buttermilk (Lassi), or herbal decoctions of Amla, Reetha, and Shikakai.",
+    "tags": [
+      "chemical shampoo warning",
+      "dandruff",
+      "dahi for hair",
+      "amla reetha",
+      "natural shampoo"
+    ],
+    "body": "Completely eliminate commercial chemical shampoos as they strip natural oils and exacerbate scalp dryness/dandruff (Sikri/Khushki). Wash hair using fresh yoghurt (Dahi), sour buttermilk (Lassi), or herbal decoctions of Amla, Reetha, and Shikakai.",
+    "urduText": "کیمیکل شیمپو سے مکمل پرہیز کریں کیونکہ یہ جلد کی قدرتی چکنائی ختم کرتے ہیں؛ دہی، کھٹی لسی، یا املہ، ریٹھا اور سیکاکائی کا جوشاندہ استعمال کریں۔"
+  },
+  {
+    "id": "h-4",
+    "sitting": "Sitting 6",
+    "date": "Sept 20, 2026",
+    "category": "Hair",
+    "title": "Belly Button (Naf) Oiling for Scalp Hydration & Stopping Hair Fall",
+    "description": "Applying 2–3 drops of mustard oil or coconut oil directly into the belly button (Naf) daily hydrates internal nervous pathways, eliminates scalp dryness, and stops hair fall at the root.",
+    "tags": [
+      "naf oiling",
+      "belly button",
+      "scalp dryness",
+      "hair fall cure"
+    ],
+    "body": "Applying 2–3 drops of mustard oil or coconut oil directly into the belly button (Naf) daily hydrates internal nervous pathways, eliminates scalp dryness, and stops hair fall at the root.",
+    "urduText": "ناف میں روزانہ سرسوں یا ناریل کا تیل لگانے سے سر کی جلد کی خشکی، نگاہ کی کمزوری اور بالوں کا گرنا بند ہوتا ہے۔"
+  },
+  {
+    "id": "h-5",
+    "sitting": "Sitting 6",
+    "date": "Sept 20, 2026",
+    "category": "Hair",
+    "title": "Spiritual Wazaif & Dam for Hair Strength (Ya Qawiyyu & Surah Al-Lail)",
+    "description": "When applying oil to hair, recite \"Ya Qawiyyu\" (O Most Strong) 7 times or Surah Al-Lail and blow onto fingertips before massaging the scalp to invoke spiritual barakah and root strength.",
+    "tags": [
+      "wazaif for hair",
+      "ya qawiyyu",
+      "surah al-lail",
+      "hair dam"
+    ],
+    "spiritualGoal": "Spiritual reinforcement and growth for weakening hair",
+    "body": "When applying oil to hair, recite \"Ya Qawiyyu\" (O Most Strong) 7 times or Surah Al-Lail and blow onto fingertips before massaging the scalp to invoke spiritual barakah and root strength.",
+    "urduText": "تیل مساج کرتے وقت ۷ بار \"یا قویُّ\" یا سورہ اللیل پڑھ کر ہاتھوں پر دم کریں اور بالوں کی جڑوں میں لگائیں۔"
+  }
+]
