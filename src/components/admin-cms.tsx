@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
+import type { CSSProperties } from "react";
 import { SUPPORTED_LOCALES } from "@/lib/locale";
 
 type Translation = Record<string, any>;
@@ -30,7 +31,7 @@ const parseTranslation = (raw: Translation) => {
   }
   return parsed;
 };
-const styles: Record<string, React.CSSProperties> = {
+const styles: Record<string, CSSProperties> = {
   shell:{maxWidth:1440,margin:"0 auto",padding:"32px 20px 64px",color:"var(--foreground,#18222c)"},
   header:{display:"flex",justifyContent:"space-between",alignItems:"center",gap:16,flexWrap:"wrap",marginBottom:24},
   title:{fontSize:30,fontWeight:750,margin:0}, muted:{color:"var(--muted-foreground,#687581)"},
