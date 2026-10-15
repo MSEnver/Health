@@ -1,6 +1,6 @@
 export type HealthReference = { title?: string | null; citation?: string | null; url?: string | null; sortOrder?: number };
 export type HealthNote = {
-  id: string; sitting: string; date?: string; category: string; title: string;
+  id: string; sitting: string; date?: string; category: string; categoryLabel?: string; title: string;
   description?: string; body?: string; introduction?: string; purpose?: string;
   contentBlocks?: unknown; materials?: unknown; instructions?: unknown; precautions?: unknown;
   healthNoticeOverride?: string; references?: HealthReference[];
