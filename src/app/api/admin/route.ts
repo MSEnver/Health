@@ -9,7 +9,8 @@ const fail = (message: string, status = 400) => NextResponse.json({ error: messa
 const obj = (value: unknown): Record<string, unknown> => value && typeof value === "object" && !Array.isArray(value) ? value as Record<string, unknown> : {};
 const str = (value: unknown, fallback = "") => typeof value === "string" ? value.trim() : fallback;
 const nullable = (value: unknown) => str(value) || null;
-const jsonValue = (value: unknown): Prisma.InputJsonValue | typeof Prisma.DbNull => value === "" || value === undefined || value === null ? Prisma.DbNull : value as Prisma.InputJsonValue;\nconst referenceRows = (value: unknown) => Array.isArray(value) ? value.filter((v) => v && typeof v === "object").map((v, index) => { const r = obj(v); return { title: nullable(r.title), citation: nullable(r.citation), url: nullable(r.url), sortOrder: Number(r.sortOrder) || index }; }) : [];
+const jsonValue = (value: unknown): Prisma.InputJsonValue | typeof Prisma.DbNull => value === "" || value === undefined || value === null ? Prisma.DbNull : value as Prisma.InputJsonValue;
+const referenceRows = (value: unknown) => Array.isArray(value) ? value.filter((v) => v && typeof v === "object").map((v, index) => { const r = obj(v); return { title: nullable(r.title), citation: nullable(r.citation), url: nullable(r.url), sortOrder: Number(r.sortOrder) || index }; }) : [];
 const locales = new Set<string>(SUPPORTED_LOCALES);
 
 export async function GET(request: NextRequest) {
@@ -21,6 +22,7 @@ export async function GET(request: NextRequest) {
     prisma.topic.count({ where: { published: true } }),
     prisma.topic.count({ where: { published: false } }),
     prisma.categoryTranslation.count(),
+    prisma.siteSetting.findUnique({ where: { key: "health_notice" } }),
   ]);
   return NextResponse.json({ categories, topics, healthNotice: healthNotice?.value ?? "", stats: { categories: categories.length, topics: topics.length, published, unpublished, translations, categoryTranslations, locales: SUPPORTED_LOCALES } });
 }
@@ -30,7 +32,13 @@ export async function POST(request: NextRequest) {
   const body = obj(await request.json().catch(() => null));
   const kind = str(body.kind);
   try {
-    if (kind === "setting") {\n      const value = str(body.value);\n      await prisma.siteSetting.upsert({ where: { key: "health_notice" }, create: { key: "health_notice", value }, update: { value } });\n      await prisma.auditLog.create({ data: { action: "UPDATE", entityType: "SiteSetting", entityId: "health_notice" } });\n      return NextResponse.json({ ok: true, value });\n    }\n    if (kind === "category") {
+    if (kind === "setting") {
+      const value = str(body.value);
+      await prisma.siteSetting.upsert({ where: { key: "health_notice" }, create: { key: "health_notice", value }, update: { value } });
+      await prisma.auditLog.create({ data: { action: "UPDATE", entityType: "SiteSetting", entityId: "health_notice" } });
+      return NextResponse.json({ ok: true, value });
+    }
+    if (kind === "category") {
       const id = str(body.id);
       const slug = str(body.slug, id).toLowerCase();
       if (!id || !slug) return fail("Category ID and slug are required.");
@@ -49,7 +57,7 @@ export async function POST(request: NextRequest) {
       const topicTranslations = obj(body.translations);
       const translationsData = Object.entries(topicTranslations).filter(([locale, value]) => locales.has(locale) && str(obj(value).title)).map(([locale, value]) => {
         const t = obj(value);
-        return { locale, title: str(t.title), description: nullable(t.description), introduction: nullable(t.introduction), body: nullable(t.body), contentBlocks: jsonValue(t.contentBlocks), purpose: nullable(t.purpose), spiritualGoal: nullable(t.spiritualGoal), materials: jsonValue(t.materials), instructions: jsonValue(t.instructions), precautions: jsonValue(t.precautions), healthNoticeOverride: nullable(t.healthNoticeOverride), urduText: nullable(t.urduText), urdu: nullable(t.urdu), englishDescription: nullable(t.englishDescription), displayTitle: nullable(t.displayTitle), nameDetails: jsonValue(t.nameDetails), tags: Array.isArray(t.tags) ? t.tags.filter((tag): tag is string => typeof tag === "string") : [], legacyData: jsonValue(t.legacyData) };
+        return { locale, title: str(t.title), description: nullable(t.description), introduction: nullable(t.introduction), body: nullable(t.body), contentBlocks: jsonValue(t.contentBlocks), purpose: nullable(t.purpose), spiritualGoal: nullable(t.spiritualGoal), materials: jsonValue(t.materials), instructions: jsonValue(t.instructions), precautions: jsonValue(t.precautions), healthNoticeOverride: nullable(t.healthNoticeOverride), urduText: nullable(t.urduText), urdu: nullable(t.urdu), englishDescription: nullable(t.englishDescription), displayTitle: nullable(t.displayTitle), nameDetails: jsonValue(t.nameDetails), tags: Array.isArray(t.tags) ? t.tags.filter((tag): tag is string => typeof tag === "string") : [], legacyData: jsonValue(t.legacyData), references: { create: referenceRows(t.references) } };
       });
       if (!translationsData.some(t => t.locale === "en")) return fail("An English title is required before saving an article.");
       const topic = await prisma.topic.create({ data: { id, categoryId, sitting: nullable(body.sitting), date: nullable(body.date), published: body.published === true, sortOrder: Number(body.sortOrder) || 0, translations: { create: translationsData } }, include: { translations: true } });
@@ -99,12 +107,16 @@ export async function PATCH(request: NextRequest) {
         const t = obj(raw), title = str(t.title);
         if (!title) continue;
         const existing = await prisma.topicTranslation.findUnique({ where: { topicId_locale: { topicId: id, locale } }, include: { references: true } });
-        const references = referenceRows(t.references);\n        const data = { title, description: nullable(t.description), introduction: nullable(t.introduction), body: nullable(t.body), contentBlocks: jsonValue(t.contentBlocks), purpose: nullable(t.purpose), spiritualGoal: nullable(t.spiritualGoal), materials: jsonValue(t.materials), instructions: jsonValue(t.instructions), precautions: jsonValue(t.precautions), healthNoticeOverride: nullable(t.healthNoticeOverride), urduText: nullable(t.urduText), urdu: nullable(t.urdu), englishDescription: nullable(t.englishDescription), displayTitle: nullable(t.displayTitle), nameDetails: jsonValue(t.nameDetails), tags: Array.isArray(t.tags) ? t.tags.filter((tag): tag is string => typeof tag === "string") : [], legacyData: jsonValue(t.legacyData) };
+        const references = referenceRows(t.references);
+        const data = { title, description: nullable(t.description), introduction: nullable(t.introduction), body: nullable(t.body), contentBlocks: jsonValue(t.contentBlocks), purpose: nullable(t.purpose), spiritualGoal: nullable(t.spiritualGoal), materials: jsonValue(t.materials), instructions: jsonValue(t.instructions), precautions: jsonValue(t.precautions), healthNoticeOverride: nullable(t.healthNoticeOverride), urduText: nullable(t.urduText), urdu: nullable(t.urdu), englishDescription: nullable(t.englishDescription), displayTitle: nullable(t.displayTitle), nameDetails: jsonValue(t.nameDetails), tags: Array.isArray(t.tags) ? t.tags.filter((tag): tag is string => typeof tag === "string") : [], legacyData: jsonValue(t.legacyData) };
         if (existing) {
           await prisma.topicRevision.create({ data: { translationId: existing.id, snapshot: { ...existing, references: existing.references } as unknown as Prisma.InputJsonValue, changeNote: "Admin CMS update" } });
-          await prisma.topicTranslation.update({ where: { id: existing.id }, data });\n          await prisma.topicReference.deleteMany({ where: { translationId: existing.id } });\n          if (references.length) await prisma.topicReference.createMany({ data: references.map((reference) => ({ ...reference, translationId: existing.id })) });
+          await prisma.topicTranslation.update({ where: { id: existing.id }, data });
+          await prisma.topicReference.deleteMany({ where: { translationId: existing.id } });
+          if (references.length) await prisma.topicReference.createMany({ data: references.map((reference) => ({ ...reference, translationId: existing.id })) });
         } else {
-          const created = await prisma.topicTranslation.create({ data: { topicId: id, locale, ...data } });\n          if (references.length) await prisma.topicReference.createMany({ data: references.map((reference) => ({ ...reference, translationId: created.id })) });
+          const created = await prisma.topicTranslation.create({ data: { topicId: id, locale, ...data } });
+          if (references.length) await prisma.topicReference.createMany({ data: references.map((reference) => ({ ...reference, translationId: created.id })) });
         }
       }
       await prisma.auditLog.create({ data: { action: "UPDATE", entityType: "Topic", entityId: id, details: { published: updatedTopic.published } } });
