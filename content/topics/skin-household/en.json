@@ -1,0 +1,50 @@
+[
+  {
+    "id": "s-5",
+    "sitting": "Sitting 6",
+    "date": "Sept 20, 2026",
+    "category": "Skin",
+    "title": "Cooking in Saturated Animal Fats & Desi Ghee for Dry Winter Skin",
+    "description": "Combat severe skin dryness in winter by cooking meat in its own saturated fats or Desi Ghee on low heat without adding water. Healthy animal fats reduce bad cholesterol and nourish the skin internally.",
+    "tags": [
+      "dry skin",
+      "saturated fats",
+      "desi ghee",
+      "winter skin"
+    ],
+    "body": "Combat severe skin dryness in winter by cooking meat in its own saturated fats or Desi Ghee on low heat without adding water. Healthy animal fats reduce bad cholesterol and nourish the skin internally.",
+    "urduText": "سردیوں کی خشکی کے لیے کھانوں میں دیسی گھی اور چربی کا استعمال کریں، پانی کے بغیر ہلکی آنچ پر پکائیں۔"
+  },
+  {
+    "id": "ls-8",
+    "sitting": "Sitting 7",
+    "date": "Oct 11, 2026",
+    "category": "Skin",
+    "title": "Traditional Clay Pot Water (Ghata Water) vs. Refrigerator Water",
+    "description": "Avoid ice-cold refrigerator water and commercially treated mineral water. Drinking natural water stored in traditional earthenware clay pots (Ghata) cools the body naturally and balances internal heat.",
+    "tags": [
+      "clay pot water",
+      "ghata water",
+      "fridge water warning",
+      "natural cooling"
+    ],
+    "body": "Avoid ice-cold refrigerator water and commercially treated mineral water. Drinking natural water stored in traditional earthenware clay pots (Ghata) cools the body naturally and balances internal heat.",
+    "urduText": "فریج اور منرل واٹر کے بجائے مٹی کے گھڑے کا قدرتی پانی پئیں۔"
+  },
+  {
+    "id": "ls-9",
+    "sitting": "Sitting 7",
+    "date": "Oct 11, 2026",
+    "category": "Skin",
+    "title": "DIY Heavy-Duty Laundry Powder & Liquid Shampoo Formulas",
+    "description": "Homemade industrial detergent formula: Combine 10kg Washing Powder (Surf) + 3kg White Washing Soda + 3kg Black Oil + 3kg Salt using a power drill mixer into a uniform cleaning paste/powder. Liquid shampoo is formulated using SLS/SLES base, Vitamin E, and Glycerin.",
+    "tags": [
+      "diy formula",
+      "washing powder",
+      "laundry powder",
+      "shampoo formula"
+    ],
+    "body": "Homemade industrial detergent formula: Combine 10kg Washing Powder (Surf) + 3kg White Washing Soda + 3kg Black Oil + 3kg Salt using a power drill mixer into a uniform cleaning paste/powder. Liquid shampoo is formulated using SLS/SLES base, Vitamin E, and Glycerin.",
+    "urduText": "سرف ۱۰ کلو + وائٹ سوڈا ۳ کلو + بلیک آئل ۳ کلو + نمک ۳ کلو ملا کر واشنگ پاؤڈر بنائیں۔"
+  }
+]
