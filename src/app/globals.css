@@ -1,3 +1,4 @@
+@font-face{font-family:"Jameel Noori Nastaleeq";src:url("/fonts/Jameel-Noori-Nastaleeq.woff2") format("woff2");font-weight:400 700;font-style:normal;font-display:swap;}
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Nastaliq+Urdu:wght@400;600;700&display=swap');
 @import "tailwindcss";
 :root{--urdu-font:"Jameel Noori Nastaleeq","Noto Nastaliq Urdu",serif;color-scheme:light;--bg:#f7fbf9;--surface:#fff;--surface-soft:#edf7f2;--text:#122f2a;--muted:#637a73;--primary:#147a54;--primary-strong:#086344;--accent:#b4dcca;--highlight:#d9f1e5;--border:#dcebe4;--shadow:0 14px 38px rgba(19,72,53,.07);--hero-start:#e9f7ef;--hero-end:#f8fcf9;--radius:22px;font-family:Arial,Inter,"Noto Nastaliq Urdu",sans-serif}
