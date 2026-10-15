@@ -1,0 +1,95 @@
+{
+  "brand": {
+    "name": "HealthGuide",
+    "tagline": "Health • Homeopathy • Spiritual Guidance"
+  },
+  "nav": {
+    "home": "Home",
+    "categories": "Categories",
+    "favorites": "Favorites",
+    "about": "About",
+    "language": "Language",
+    "theme": "Theme"
+  },
+  "hero": {
+    "eyebrow": "A thoughtful health knowledge archive",
+    "title": "Natural Health.\nBetter Living.",
+    "description": "Explore health notes, traditional remedies, homeopathy, and spiritual guidance in one organized library.",
+    "searchPlaceholder": "Search health topics, remedies, or wazaif…",
+    "search": "Search",
+    "popular": "Popular",
+    "knowledgeLabel": "Wellness knowledge"
+  },
+  "sections": {
+    "categories": "Browse by Category",
+    "viewAll": "View all",
+    "articles": "Knowledge Archive",
+    "featured": "Featured content",
+    "quickAccess": "Quick access",
+    "latest": "Latest notes",
+    "all": "All",
+    "noResults": "No entries match your search.",
+    "showing": "Showing",
+    "of": "of",
+    "entries": "entries",
+    "readMore": "Read details",
+    "readTime": "min read",
+    "date": "Session",
+    "exploreKicker": "Explore the library",
+    "categoriesCount": "categories",
+    "libraryKicker": "Your knowledge library",
+    "atAGlance": "At a glance",
+    "editorsSelection": "Editor’s selection",
+    "purpose": "Purpose",
+    "purposeValue": "Personal study and reflection",
+    "categoryCountLabel": "entries",
+    "clearSearch": "Clear search"
+  },
+  "categories": {
+    "Names": "Names & Ilm-ul-Adad",
+    "Hair": "Hair & Scalp",
+    "Spiritual": "Spiritual Guidance",
+    "Joints": "Joint Care",
+    "Cardiovascular": "Heart & Circulation",
+    "Digestive": "Digestive Health",
+    "Respiratory": "Respiratory Health",
+    "Homeopathy": "Homeopathy",
+    "Skin": "Skin & Household"
+  },
+  "quick": {
+    "popular": "Popular entries",
+    "recent": "Recently added",
+    "favorites": "My favorites",
+    "sittings": "Browse by sitting",
+    "index": "A–Z index",
+    "all": "All entries"
+  },
+  "footer": {
+    "trusted": "Knowledge archive",
+    "natural": "Traditional knowledge",
+    "spiritual": "Spiritual guidance",
+    "multilingual": "Multilingual",
+    "notice": "Educational archive only. Verify health claims with a qualified healthcare professional.",
+    "organized": "Organized notes for easy reference",
+    "traditional": "Traditional knowledge",
+    "personal": "Personal study and reflection",
+    "languageValue": "English and Urdu content"
+  },
+  "detail": {
+    "close": "Close",
+    "category": "Category",
+    "sitting": "Sitting",
+    "date": "Date",
+    "tags": "Tags",
+    "bookmark": "Save to favorites",
+    "unbookmark": "Remove from favorites",
+    "medicalNotice": "Health information notice",
+    "medicalNoticeText": "These notes are an archive of user-provided material, not verified medical guidance. Some remedies may be ineffective or harmful. Do not stop prescribed treatment or delay urgent care. Discuss health decisions with a qualified clinician."
+  },
+  "themes": {
+    "label": "Appearance",
+    "clean": "Clean & Modern",
+    "dark": "Dark & Elegant",
+    "warm": "Warm & Traditional"
+  }
+}
