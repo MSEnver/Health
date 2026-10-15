@@ -84,9 +84,6 @@ import skinEo from '../../content/topics/skin-household/eo.json';
 
 export const SUPPORTED_LOCALES = ["en","ur","ps","pa-Arab","hi","pa","skr","sd","eo"] as const;
 export type SupportedLocale = (typeof SUPPORTED_LOCALES)[number];
-const RTL_LOCALES = new Set<SupportedLocale>(['ur', 'ps', 'pa-Arab', 'skr', 'sd']);
-export const isRtlLocale = (locale: string): boolean => RTL_LOCALES.has(locale as SupportedLocale);
-
 const expectedCounts: Record<string, number> = {"names":23,"hair-scalp":5,"spiritual-guidance":9,"joint-care":4,"heart-circulation":3,"digestive-health":3,"respiratory-health":2,"homeopathy":4,"skin-household":3};
 
 const topicSources: Record<SupportedLocale, readonly (readonly HealthNote[])[]> = {
