@@ -50,3 +50,51 @@
   :root[lang="ur"] .detail-modal h2{font-size:22px;line-height:2.2}
   :root[lang="ur"] .detail-body{font-size:15px;line-height:2.45}
 }
+
+
+/* Urdu typography is centralized here so page sections and reusable components inherit one font stack. */
+:root[lang="ur"] body,
+:root[lang="ur"] body * {
+  font-family: var(--urdu-font), "Noto Nastaliq Urdu", Tahoma, Arial, sans-serif;
+}
+:root[lang="ur"] body {
+  line-height: 2.15;
+}
+:root[lang="ur"] .hero-copy h1,
+:root[lang="ur"] .section-heading h2,
+:root[lang="ur"] .quick-panel h2,
+:root[lang="ur"] .featured-panel h2,
+:root[lang="ur"] .detail-modal h2 {
+  font-family: var(--urdu-font), "Noto Nastaliq Urdu", Tahoma, Arial, sans-serif;
+  letter-spacing: 0;
+  line-height: 2.15;
+}
+:root[lang="ur"] .hero-copy h1 {
+  line-height: 1.95;
+  margin-top: 14px;
+  margin-bottom: 16px;
+}
+:root[lang="ur"] .hero-copy p,
+:root[lang="ur"] .hero-tags button,
+:root[lang="ur"] .hero-search input,
+:root[lang="ur"] .search-submit,
+:root[lang="ur"] .section-subtitle,
+:root[lang="ur"] .filter-pills button,
+:root[lang="ur"] .sitting-select,
+:root[lang="ur"] .outline-button {
+  line-height: 2.2;
+}
+:root[lang="ur"] .hero-tags {
+  gap: 9px;
+  row-gap: 10px;
+}
+:root[lang="ur"] .hero-tags button,
+:root[lang="ur"] .filter-pills button {
+  padding-block: 7px;
+  white-space: normal;
+}
+:root[lang="ur"] .content-card h3,
+:root[lang="ur"] .content-card p {
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
