@@ -1,0 +1,55 @@
+[
+  {
+    "id": "c-1",
+    "sitting": "Sitting 6",
+    "date": "Sept 20, 2026",
+    "category": "Cardiovascular",
+    "title": "Thick Blood vs. Cholesterol (Stroke & Paralysis Prevention)",
+    "urdu": "خون کو پتلا رکھیں، گاڑھا خون فالج اور دل کے دورے کا باعث بنتا ہے جبکہ کولیسٹرول اصل دشمن نہیں ہے۔",
+    "tags": [
+      "thick blood",
+      "stroke",
+      "paralysis",
+      "heart attack",
+      "clot prevention"
+    ],
+    "body": "خون کو پتلا رکھیں، گاڑھا خون فالج اور دل کے دورے کا باعث بنتا ہے جبکہ کولیسٹرول اصل دشمن نہیں ہے۔",
+    "englishDescription": "Arterial blockage, stroke (Falaj), and heart attacks are caused by excessively thick blood forming clots in brain and heart pathways—cholesterol alone is not the primary culprit. Keeping blood naturally thin is key to survival.",
+    "displayTitle": "خون کو پتلا رکھیں، گاڑھا خون فالج اور دل کے دورے کا باعث بنتا ہے جبکہ کولیسٹرول اصل دشمن نہیں ہے۔"
+  },
+  {
+    "id": "c-2",
+    "sitting": "Sitting 6",
+    "date": "Sept 20, 2026",
+    "category": "Cardiovascular",
+    "title": "Herbal Blood Thinning Protocol (Haldi, Saunf & Mulatthi)",
+    "urdu": "ہلدی، سونف اور ملٹھی کا آمیزہ خون کو پتلا کرتا ہے۔ ایک ہفتہ استعمال کریں اور ایک ہفتہ وقفہ دیں۔",
+    "tags": [
+      "blood thinner",
+      "turmeric",
+      "ginger",
+      "garlic",
+      "stroke prevention"
+    ],
+    "body": "ہلدی، سونف اور ملٹھی کا آمیزہ خون کو پتلا کرتا ہے۔ ایک ہفتہ استعمال کریں اور ایک ہفتہ وقفہ دیں۔",
+    "englishDescription": "Blend Turmeric (Haldi), Fennel (Saunf), Licorice (Mulatthi), Ginger, and Garlic to naturally thin thick blood. Take for 1 week and pause for 1 week. Can be continued for 1 month up to 6 months based on condition.",
+    "displayTitle": "ہلدی، سونف اور ملٹھی کا آمیزہ خون کو پتلا کرتا ہے۔ ایک ہفتہ استعمال کریں اور ایک ہفتہ وقفہ دیں۔"
+  },
+  {
+    "id": "c-3",
+    "sitting": "Sitting 6",
+    "date": "Sept 20, 2026",
+    "category": "Cardiovascular",
+    "title": "Dietary Warnings for High Blood Pressure & Stroke Patients",
+    "urdu": "فالج کے مریض کے لیے مرغی (برائلر) اور کبوتر کا گوشت انتہائی خطرناک ہے کیونکہ ان کی تاثیر گرم ہے۔",
+    "tags": [
+      "stroke diet",
+      "broiler warning",
+      "hot nature foods",
+      "blood pressure"
+    ],
+    "body": "فالج کے مریض کے لیے مرغی (برائلر) اور کبوتر کا گوشت انتہائی خطرناک ہے کیونکہ ان کی تاثیر گرم ہے۔",
+    "englishDescription": "Patients at risk of stroke or recovering from paralysis must strictly avoid commercial broiler chicken and pigeon meat due to their extremely hot nature. Limit mutton to once a week in light broth (Yakhni) and emphasize vegetables.",
+    "displayTitle": "فالج کے مریض کے لیے مرغی (برائلر) اور کبوتر کا گوشت انتہائی خطرناک ہے کیونکہ ان کی تاثیر گرم ہے۔"
+  }
+]
