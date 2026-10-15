@@ -1,0 +1,47 @@
+[
+  {
+    "id": "Names",
+    "slug": "names",
+    "enabled": true
+  },
+  {
+    "id": "Hair",
+    "slug": "hair-scalp",
+    "enabled": true
+  },
+  {
+    "id": "Spiritual",
+    "slug": "spiritual-guidance",
+    "enabled": true
+  },
+  {
+    "id": "Joints",
+    "slug": "joint-care",
+    "enabled": true
+  },
+  {
+    "id": "Cardiovascular",
+    "slug": "heart-circulation",
+    "enabled": true
+  },
+  {
+    "id": "Digestive",
+    "slug": "digestive-health",
+    "enabled": true
+  },
+  {
+    "id": "Respiratory",
+    "slug": "respiratory-health",
+    "enabled": true
+  },
+  {
+    "id": "Homeopathy",
+    "slug": "homeopathy",
+    "enabled": true
+  },
+  {
+    "id": "Skin",
+    "slug": "skin-household",
+    "enabled": true
+  }
+]
