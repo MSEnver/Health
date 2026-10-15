@@ -1,4 +1,5 @@
 import type { HealthNote } from './types';
+import { SUPPORTED_LOCALES, type SupportedLocale } from './locale';
 
 import namesEn from '../../content/topics/names/en.json';
 import namesUr from '../../content/topics/names/ur.json';
@@ -82,8 +83,6 @@ import skinSkr from '../../content/topics/skin-household/skr.json';
 import skinSd from '../../content/topics/skin-household/sd.json';
 import skinEo from '../../content/topics/skin-household/eo.json';
 
-export const SUPPORTED_LOCALES = ["en","ur","ps","pa-Arab","hi","pa","skr","sd","eo"] as const;
-export type SupportedLocale = (typeof SUPPORTED_LOCALES)[number];
 const expectedCounts: Record<string, number> = {"names":23,"hair-scalp":5,"spiritual-guidance":9,"joint-care":4,"heart-circulation":3,"digestive-health":3,"respiratory-health":2,"homeopathy":4,"skin-household":3};
 
 const topicSources: Record<SupportedLocale, readonly (readonly HealthNote[])[]> = {
