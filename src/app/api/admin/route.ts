@@ -14,7 +14,7 @@ const locales = new Set<string>(SUPPORTED_LOCALES);
 
 export async function GET(request: NextRequest) {
   if (!isAdminAuthorized(request)) return fail("Admin authentication required.", 401);
-  const [categories, topics, translations, published, unpublished, categoryTranslations] = await Promise.all([
+  const [categories, topics, translations, published, unpublished, categoryTranslations, healthNotice] = await Promise.all([
     prisma.category.findMany({ orderBy: [{ sortOrder: "asc" }, { id: "asc" }], include: { translations: true } }),
     prisma.topic.findMany({ orderBy: [{ category: { sortOrder: "asc" } }, { sortOrder: "asc" }, { id: "asc" }], include: { translations: { include: { references: { orderBy: { sortOrder: "asc" } } } } } }),
     prisma.topicTranslation.count(),
@@ -22,7 +22,7 @@ export async function GET(request: NextRequest) {
     prisma.topic.count({ where: { published: false } }),
     prisma.categoryTranslation.count(),
   ]);
-  return NextResponse.json({ categories, topics, stats: { categories: categories.length, topics: topics.length, published, unpublished, translations, categoryTranslations, locales: SUPPORTED_LOCALES } });
+  return NextResponse.json({ categories, topics, healthNotice: healthNotice?.value ?? "", stats: { categories: categories.length, topics: topics.length, published, unpublished, translations, categoryTranslations, locales: SUPPORTED_LOCALES } });
 }
 
 export async function POST(request: NextRequest) {
@@ -30,7 +30,7 @@ export async function POST(request: NextRequest) {
   const body = obj(await request.json().catch(() => null));
   const kind = str(body.kind);
   try {
-    if (kind === "category") {
+    if (kind === "setting") {\n      const value = str(body.value);\n      await prisma.siteSetting.upsert({ where: { key: "health_notice" }, create: { key: "health_notice", value }, update: { value } });\n      await prisma.auditLog.create({ data: { action: "UPDATE", entityType: "SiteSetting", entityId: "health_notice" } });\n      return NextResponse.json({ ok: true, value });\n    }\n    if (kind === "category") {
       const id = str(body.id);
       const slug = str(body.slug, id).toLowerCase();
       if (!id || !slug) return fail("Category ID and slug are required.");
