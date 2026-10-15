@@ -2,7 +2,7 @@
 import { Bookmark, BookOpen, Clock3 } from 'lucide-react';
 import type { HealthNote } from '@/lib/types';
 import { useTranslations } from 'next-intl';
-import { isRtlLocale } from '@/lib/content';
+import { isRtlLocale } from '@/lib/locale';
 export function ContentCard({ note, locale, favorite, onFavorite, onOpen }: { note: HealthNote; locale: string; favorite: boolean; onFavorite: (id: string) => void; onOpen: (note: HealthNote) => void }) {
   const t = useTranslations();
   const title = note.localized?.[locale]?.title || (locale === 'ur' ? (note.displayTitle || note.title) : note.title);
