@@ -22,7 +22,7 @@ export async function getHealthNotesFromDb(
   }
 
   const topics = await prisma.topic.findMany({
-    where: { published: true },
+    where: { published: true, category: { enabled: true } },
     orderBy: [
       { category: { sortOrder: "asc" } },
       { sortOrder: "asc" },
