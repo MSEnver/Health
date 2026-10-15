@@ -1,5 +1,5 @@
 'use client';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import { ArrowRight, HeartPulse, Leaf, Search, ShieldCheck, Sparkles, X } from 'lucide-react';
 import type { HealthNote } from '@/lib/types';
@@ -12,6 +12,27 @@ export function Dashboard() {
   const source = (locale === 'ur' ? notesUr : notesEn) as HealthNote[];
   const [query, setQuery] = useState(''); const [category, setCategory] = useState('all'); const [sitting, setSitting] = useState('all');
   const [favorites, setFavorites] = useState<string[]>([]); const [showFavorites, setShowFavorites] = useState(false); const [selected, setSelected] = useState<HealthNote | null>(null);
+  const restoredState = useRef(false);
+  useEffect(() => {
+    try {
+      const saved = sessionStorage.getItem('health-guide-view-state');
+      if (saved) {
+        const state = JSON.parse(saved) as { query?: string; category?: string; sitting?: string; showFavorites?: boolean; favorites?: string[] };
+        if (typeof state.query === 'string') setQuery(state.query);
+        if (typeof state.category === 'string') setCategory(state.category);
+        if (typeof state.sitting === 'string') setSitting(state.sitting);
+        if (typeof state.showFavorites === 'boolean') setShowFavorites(state.showFavorites);
+        if (Array.isArray(state.favorites)) setFavorites(state.favorites.filter((id): id is string => typeof id === 'string'));
+      }
+    } catch {
+      sessionStorage.removeItem('health-guide-view-state');
+    }
+    restoredState.current = true;
+  }, []);
+  useEffect(() => {
+    if (!restoredState.current) return;
+    sessionStorage.setItem('health-guide-view-state', JSON.stringify({ query, category, sitting, showFavorites, favorites }));
+  }, [query, category, sitting, showFavorites, favorites]);
   const categories = useMemo(() => [...new Set(source.map(n => n.category))], [source]);
   const sittings = useMemo(() => [...new Set(source.map(n => n.sitting))].sort((a, b) => a.localeCompare(b, undefined, { numeric: true })), [source]);
   const visible = useMemo(() => source.filter(n => {
