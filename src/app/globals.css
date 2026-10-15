@@ -98,3 +98,47 @@
   overflow-wrap: anywhere;
   word-break: normal;
 }
+
+
+/* Responsive hero width and breathing room around topic chips and search. */
+.hero-section{
+  width: min(100%, 1140px);
+  margin-inline: auto;
+  margin-top: 24px;
+  margin-bottom: 44px;
+}
+.hero-copy{padding-bottom:112px}
+.hero-tags{gap:12px 14px;margin-top:25px;margin-bottom:20px}
+.hero-tags button{padding:9px 13px;line-height:1.65;max-width:100%}
+.hero-search{left:34px;right:34px;bottom:22px}
+.filters-row{column-gap:26px;row-gap:20px}
+.filter-pills{gap:10px 12px}
+.filter-pills button{padding:9px 14px;line-height:1.7}
+.article-grid{gap:20px}
+:root[dir="rtl"] .hero-section{direction:rtl}
+:root[dir="rtl"] .hero-copy{padding-bottom:118px}
+:root[dir="rtl"] .hero-tags{gap:13px 15px;margin-top:27px;margin-bottom:22px}
+:root[dir="rtl"] .hero-tags button,
+:root[dir="rtl"] .filter-pills button,
+:root[dir="rtl"] .sitting-select{line-height:2.25;padding-block:9px}
+:root[dir="ltr"] .hero-section{direction:ltr}
+:root[dir="ltr"] .hero-tags{gap:12px 14px}
+:root[dir="ltr"] .hero-tags button,
+:root[dir="ltr"] .filter-pills button,
+:root[dir="ltr"] .sitting-select{line-height:1.7}
+@media(max-width:900px){
+ .hero-section{width:100%}
+ .hero-tags{gap:10px 11px}
+ .hero-search{left:22px;right:22px}
+}
+@media(max-width:620px){
+ .hero-section{margin-top:15px;margin-bottom:30px}
+ .hero-copy{padding:25px 22px 112px}
+ .hero-tags{gap:9px 10px;margin-top:18px;margin-bottom:18px}
+ .hero-tags button{padding:7px 10px;line-height:1.8}
+ .hero-search{left:13px;right:13px;bottom:13px}
+ :root[dir="rtl"] .hero-copy{padding-bottom:116px}
+ :root[dir="rtl"] .hero-tags{gap:10px;margin-top:18px;margin-bottom:18px}
+ .filter-pills{gap:8px 9px}
+ .filter-pills button{padding:8px 10px}
+}
