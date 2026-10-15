@@ -5,11 +5,40 @@ import { ArrowRight, HeartPulse, Leaf, Search, ShieldCheck, Sparkles, X } from '
 import type { HealthNote } from '@/lib/types';
 import notesEn from '../../data/health.en.json';
 import notesUr from '../../data/health.ur.json';
+import NamesEn from '../../content/topics/names/en.json';
+import NamesUr from '../../content/topics/names/ur.json';
+import HairEn from '../../content/topics/hair-scalp/en.json';
+import HairUr from '../../content/topics/hair-scalp/ur.json';
+import SpiritualEn from '../../content/topics/spiritual-guidance/en.json';
+import SpiritualUr from '../../content/topics/spiritual-guidance/ur.json';
+import JointsEn from '../../content/topics/joint-care/en.json';
+import JointsUr from '../../content/topics/joint-care/ur.json';
+import CardiovascularEn from '../../content/topics/heart-circulation/en.json';
+import CardiovascularUr from '../../content/topics/heart-circulation/ur.json';
+import DigestiveEn from '../../content/topics/digestive-health/en.json';
+import DigestiveUr from '../../content/topics/digestive-health/ur.json';
+import RespiratoryEn from '../../content/topics/respiratory-health/en.json';
+import RespiratoryUr from '../../content/topics/respiratory-health/ur.json';
+import HomeopathyEn from '../../content/topics/homeopathy/en.json';
+import HomeopathyUr from '../../content/topics/homeopathy/ur.json';
+import SkinEn from '../../content/topics/skin-household/en.json';
+import SkinUr from '../../content/topics/skin-household/ur.json';
+
 import { ContentCard } from './content-card';
 const featuredIds = ['h-1', 'h-2', 'sp-1', 'hom-1', 'j-1', 'c-3'];
 export function Dashboard() {
   const locale = useLocale(); const t = useTranslations();
-  const source = (locale === 'ur' ? notesUr : notesEn) as HealthNote[];
+  const source = [
+    ...(locale === 'ur' ? NamesUr : NamesEn) as HealthNote[],
+    ...(locale === 'ur' ? HairUr : HairEn) as HealthNote[],
+    ...(locale === 'ur' ? SpiritualUr : SpiritualEn) as HealthNote[],
+    ...(locale === 'ur' ? JointsUr : JointsEn) as HealthNote[],
+    ...(locale === 'ur' ? CardiovascularUr : CardiovascularEn) as HealthNote[],
+    ...(locale === 'ur' ? DigestiveUr : DigestiveEn) as HealthNote[],
+    ...(locale === 'ur' ? RespiratoryUr : RespiratoryEn) as HealthNote[],
+    ...(locale === 'ur' ? HomeopathyUr : HomeopathyEn) as HealthNote[],
+    ...(locale === 'ur' ? SkinUr : SkinEn) as HealthNote[]
+  ] as HealthNote[];
   const [query, setQuery] = useState(''); const [category, setCategory] = useState('all'); const [sitting, setSitting] = useState('all');
   const [favorites, setFavorites] = useState<string[]>([]); const [showFavorites, setShowFavorites] = useState(false); const [selected, setSelected] = useState<HealthNote | null>(null);
   const [stateLoaded, setStateLoaded] = useState(false);
