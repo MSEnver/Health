@@ -5,19 +5,11 @@ import { ArrowRight, HeartPulse, Leaf, Search, ShieldCheck, Sparkles, X } from '
 import type { HealthNote } from '@/lib/types';
 import notesEn from '../../data/health.en.json';
 import notesUr from '../../data/health.ur.json';
-import notesPs from '../../data/health.ps.json';
-import notesPaArab from '../../data/health.pa-Arab.json';
-import notesHi from '../../data/health.hi.json';
-import notesPa from '../../data/health.pa.json';
-import notesSkr from '../../data/health.skr.json';
-import notesSd from '../../data/health.sd.json';
-import notesEo from '../../data/health.eo.json';
 import { ContentCard } from './content-card';
 const featuredIds = ['h-1', 'h-2', 'sp-1', 'hom-1', 'j-1', 'c-3'];
 export function Dashboard() {
   const locale = useLocale(); const t = useTranslations();
-  const localizedSources: Record<string, HealthNote[]> = { en: notesEn as HealthNote[], ur: notesUr as HealthNote[], ps: notesPs as HealthNote[], 'pa-Arab': notesPaArab as HealthNote[], hi: notesHi as HealthNote[], pa: notesPa as HealthNote[], skr: notesSkr as HealthNote[], sd: notesSd as HealthNote[], eo: notesEo as HealthNote[] };
-  const source = localizedSources[locale] ?? (notesEn as HealthNote[]);
+  const source = (locale === 'ur' ? notesUr : notesEn) as HealthNote[];
   const [query, setQuery] = useState(''); const [category, setCategory] = useState('all'); const [sitting, setSitting] = useState('all');
   const [favorites, setFavorites] = useState<string[]>([]); const [showFavorites, setShowFavorites] = useState(false); const [selected, setSelected] = useState<HealthNote | null>(null);
   const [stateLoaded, setStateLoaded] = useState(false);
