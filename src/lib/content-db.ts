@@ -28,6 +28,7 @@ export async function getHealthNotesFromDb(
       { sortOrder: "asc" },
     ],
     include: {
+      category: { include: { translations: { where: { locale: { in: locale === "en" ? ["en"] : [locale, "en"] } } } } },
       translations: {
         where: { locale: { in: locale === "en" ? ["en"] : [locale, "en"] } },
         include: { references: { orderBy: { sortOrder: "asc" } } },
@@ -53,6 +54,7 @@ export async function getHealthNotesFromDb(
       sitting: topic.sitting ?? "Sitting",
       date: topic.date ?? undefined,
       category: String(englishLegacy.category ?? selectedLegacy.category ?? topic.categoryId),
+      categoryLabel: topic.category.translations.find((item) => item.locale === locale)?.name ?? topic.category.translations.find((item) => item.locale === "en")?.name ?? String(englishLegacy.category ?? topic.categoryId),
       title: selected?.title ?? english?.title ?? String(englishLegacy.title ?? topic.id),
       description:
         selected?.description ??
