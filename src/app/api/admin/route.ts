@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { Prisma } from "@/generated/prisma/client";
 import { isAdminAuthorized } from "@/lib/admin-auth";
 import { SUPPORTED_LOCALES } from "@/lib/locale";
 
@@ -8,7 +9,7 @@ const fail = (message: string, status = 400) => NextResponse.json({ error: messa
 const obj = (value: unknown): Record<string, unknown> => value && typeof value === "object" && !Array.isArray(value) ? value as Record<string, unknown> : {};
 const str = (value: unknown, fallback = "") => typeof value === "string" ? value.trim() : fallback;
 const nullable = (value: unknown) => str(value) || null;
-const jsonValue = (value: unknown) => value === "" || value === undefined ? null : value;
+const jsonValue = (value: unknown): Prisma.InputJsonValue | typeof Prisma.DbNull => value === "" || value === undefined || value === null ? Prisma.DbNull : value as Prisma.InputJsonValue;
 const locales = new Set<string>(SUPPORTED_LOCALES);
 
 export async function GET(request: NextRequest) {
@@ -100,7 +101,7 @@ export async function PATCH(request: NextRequest) {
         const existing = await prisma.topicTranslation.findUnique({ where: { topicId_locale: { topicId: id, locale } }, include: { references: true } });
         const data = { title, description: nullable(t.description), introduction: nullable(t.introduction), body: nullable(t.body), contentBlocks: jsonValue(t.contentBlocks), purpose: nullable(t.purpose), spiritualGoal: nullable(t.spiritualGoal), materials: jsonValue(t.materials), instructions: jsonValue(t.instructions), precautions: jsonValue(t.precautions), healthNoticeOverride: nullable(t.healthNoticeOverride), urduText: nullable(t.urduText), urdu: nullable(t.urdu), englishDescription: nullable(t.englishDescription), displayTitle: nullable(t.displayTitle), nameDetails: jsonValue(t.nameDetails), tags: Array.isArray(t.tags) ? t.tags.filter((tag): tag is string => typeof tag === "string") : [], legacyData: jsonValue(t.legacyData) };
         if (existing) {
-          await prisma.topicRevision.create({ data: { translationId: existing.id, snapshot: { ...existing, references: existing.references } as object, changeNote: "Admin CMS update" } });
+          await prisma.topicRevision.create({ data: { translationId: existing.id, snapshot: { ...existing, references: existing.references } as unknown as Prisma.InputJsonValue, changeNote: "Admin CMS update" } });
           await prisma.topicTranslation.update({ where: { id: existing.id }, data });
         } else {
           await prisma.topicTranslation.create({ data: { topicId: id, locale, ...data } });
