@@ -1,0 +1,54 @@
+[
+  {
+    "id": "d-11",
+    "sitting": "Sitting 6",
+    "date": "Sept 20, 2026",
+    "category": "Digesta sano",
+    "title": "Nevola ridado aŭ plorado pro konstipo kaj “cerbaj vaporoj”",
+    "description": "La teksto atribuas subitajn ridadon aŭ ploradon dum sidado al kronika konstipo kaj supozataj vaporoj atingantaj la cerbon, kaj rekomendas flari lokan salon aŭ amonian kloridon. Por tiu klarigo mankas fidindaj medicinaj pruvoj; amonia klorido povas esti damaĝa se enspirata. Serĉu kuracistan konsilon pri tiaj simptomoj.",
+    "tags": [
+      "involuntary laughter",
+      "constipation",
+      "brain vapors",
+      "noshadar",
+      "sneezing"
+    ],
+    "body": "La teksto atribuas subitajn ridadon aŭ ploradon dum sidado al kronika konstipo kaj supozataj vaporoj atingantaj la cerbon, kaj rekomendas flari lokan salon aŭ amonian kloridon. Por tiu klarigo mankas fidindaj medicinaj pruvoj; amonia klorido povas esti damaĝa se enspirata. Serĉu kuracistan konsilon pri tiaj simptomoj.",
+    "urduText": "بیٹھے بیٹھے اچانک ہنسنا یا رونا قبض اور دماغی ریشے کی وجہ سے ہوتا ہے، دیسی نمک یا نشادر سونگھ کر چھینک لائیں۔"
+  },
+  {
+    "id": "d-12",
+    "sitting": "Sitting 6",
+    "date": "Sept 20, 2026",
+    "category": "Digesta sano",
+    "title": "Klasifiko de manĝaĵoj: verda kapsiko, brasiko, melongeno kaj gombo",
+    "description": "La teksto klasifikas verdan kapsikon, brasikon, melongenon, gombon kaj turion laŭ tradiciaj nocioj de “malvarma”, “varma” aŭ “badi”. Ĝi ankaŭ donas kvantojn kaj limigojn por iuj malsanoj, sed ĉi tiuj kategorioj ne estas establitaj medicinaj principoj.",
+    "tags": [
+      "food natures",
+      "badi",
+      "cold nature",
+      "green chilli",
+      "cabbage",
+      "bhindi",
+      "piles warning"
+    ],
+    "body": "La teksto klasifikas verdan kapsikon, brasikon, melongenon, gombon kaj turion laŭ tradiciaj nocioj de “malvarma”, “varma” aŭ “badi”. Ĝi ankaŭ donas kvantojn kaj limigojn por iuj malsanoj, sed ĉi tiuj kategorioj ne estas establitaj medicinaj principoj.",
+    "urduText": "ہری مرچ ٹھنڈی اور بادی ہے، بند گوبھی گردوں کے لیے، بینگن گرم ہے، بھنڈی آنتوں کے لیے مفید ہے۔"
+  },
+  {
+    "id": "d-13",
+    "sitting": "Sitting 6",
+    "date": "Sept 20, 2026",
+    "category": "Digesta sano",
+    "title": "Vinbera vinagro kaj Cho-Arqa por intesto kaj genuoj",
+    "description": "La teksto proponas dilui unu parton da pura vinbera vinagro en tri ĝis kvar partoj da Cho-Arqa distilaĵo. Ĝi asertas, ke la miksaĵo mildigas ŝvelon de la stomako, acidecon kaj genuan inflamon, sed ĝia efikeco por tiuj celoj ne estas pruvita.",
+    "tags": [
+      "grape vinegar",
+      "cho-arqa",
+      "gut health",
+      "knee pain"
+    ],
+    "body": "La teksto proponas dilui unu parton da pura vinbera vinagro en tri ĝis kvar partoj da Cho-Arqa distilaĵo. Ĝi asertas, ke la miksaĵo mildigas ŝvelon de la stomako, acidecon kaj genuan inflamon, sed ĝia efikeco por tiuj celoj ne estas pruvita.",
+    "urduText": "۱ حصہ انگوری سرکہ ۳-۴ حصے چہارقہ میں ملا کر پئیں، معدے اور گوڈوں کے لیے بہترین ہے۔"
+  }
+]
