@@ -1,10 +1,14 @@
 import { Dashboard } from "@/components/dashboard";
-import { getHealthNotesFromDb } from "@/lib/content-db";
+import { getHealthNotesFromDb, getSharedHealthNotice } from "@/lib/content-db";
 import { getLocale } from "next-intl/server";
+
+export const dynamic = "force-dynamic";
 
 export default async function HomePage() {
   const locale = await getLocale();
-  const notes = await getHealthNotesFromDb(locale);
-
-  return <Dashboard initialNotes={notes} />;
+  const [notes, healthNotice] = await Promise.all([
+    getHealthNotesFromDb(locale),
+    getSharedHealthNotice(),
+  ]);
+  return <Dashboard initialNotes={notes} healthNotice={healthNotice} />;
 }
