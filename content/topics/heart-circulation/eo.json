@@ -1,0 +1,52 @@
+[
+  {
+    "id": "c-1",
+    "sitting": "Sitting 6",
+    "date": "Sept 20, 2026",
+    "category": "Koro kaj sangocirkulado",
+    "title": "Dika sango kontraŭ kolesterolo: asertoj pri prevento de apopleksio",
+    "description": "La teksto asertas, ke arteriaj blokadoj, apopleksio kaj koratakoj ĉefe devenas de dika sango kaj koagulaĵoj, ne de kolesterolo. Tio estas nekompleta kaj misgvida medicina klarigo: kolesterolo, sangopremo kaj aliaj riskfaktoroj gravas. Konsultu sanprofesiulon.",
+    "tags": [
+      "thick blood",
+      "stroke",
+      "paralysis",
+      "heart attack",
+      "clot prevention"
+    ],
+    "body": "La teksto asertas, ke arteriaj blokadoj, apopleksio kaj koratakoj ĉefe devenas de dika sango kaj koagulaĵoj, ne de kolesterolo. Tio estas nekompleta kaj misgvida medicina klarigo: kolesterolo, sangopremo kaj aliaj riskfaktoroj gravas. Konsultu sanprofesiulon.",
+    "urduText": "خون کو پتلا رکھیں، گاڑھا خون فالج اور دل کے دورے کا باعث بنتا ہے جبکہ کولیسٹرول اصل دشمن نہیں ہے۔"
+  },
+  {
+    "id": "c-2",
+    "sitting": "Sitting 6",
+    "date": "Sept 20, 2026",
+    "category": "Koro kaj sangocirkulado",
+    "title": "Herba metodo por maldensigi sangon: kurkumo, fenkolo kaj glicirizo",
+    "description": "La teksto proponas miksi kurkumon, fenkolon, glicirizon, zingibron kaj ajlon por maldensigi sangon, kun semajna paŭzo. La sekureco kaj efikeco de ĉi tiu miksaĵo ne estas pruvitaj; herboj povas interagi danĝere kun medikamentoj, precipe antikoagulantoj.",
+    "tags": [
+      "blood thinner",
+      "turmeric",
+      "ginger",
+      "garlic",
+      "stroke prevention"
+    ],
+    "body": "La teksto proponas miksi kurkumon, fenkolon, glicirizon, zingibron kaj ajlon por maldensigi sangon, kun semajna paŭzo. La sekureco kaj efikeco de ĉi tiu miksaĵo ne estas pruvitaj; herboj povas interagi danĝere kun medikamentoj, precipe antikoagulantoj.",
+    "urduText": "ہلدی، سونف اور ملٹھی کا آمیزہ خون کو پتلا کرتا ہے۔ ایک ہفتہ استعمال کریں اور ایک ہفتہ وقفہ دیں۔"
+  },
+  {
+    "id": "c-3",
+    "sitting": "Sitting 6",
+    "date": "Sept 20, 2026",
+    "category": "Koro kaj sangocirkulado",
+    "title": "Dietaj avertoj por homoj kun alta sangopremo aŭ apopleksia risko",
+    "description": "La teksto konsilas eviti broileran kokidon kaj kolomban viandon kaj limigi ŝafaĵon al unufoje semajne en malpeza buljono. Limigi manĝaĵojn laŭ tradicia nocio de “varma naturo” ne estas establita medicina gvido; sekvu ekvilibran dieton kaj profesian konsilon.",
+    "tags": [
+      "stroke diet",
+      "broiler warning",
+      "hot nature foods",
+      "blood pressure"
+    ],
+    "body": "La teksto konsilas eviti broileran kokidon kaj kolomban viandon kaj limigi ŝafaĵon al unufoje semajne en malpeza buljono. Limigi manĝaĵojn laŭ tradicia nocio de “varma naturo” ne estas establita medicina gvido; sekvu ekvilibran dieton kaj profesian konsilon.",
+    "urduText": "فالج کے مریض کے لیے مرغی (برائلر) اور کبوتر کا گوشت انتہائی خطرناک ہے کیونکہ ان کی تاثیر گرم ہے۔"
+  }
+]
