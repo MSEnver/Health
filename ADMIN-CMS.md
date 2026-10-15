@@ -40,5 +40,5 @@ Then test `/admin` and verify that article/category create, edit, publication, t
 - The interface itself continues to use the existing `messages/*.json` translations.
 - Article translations with an empty title are not saved, to avoid creating blank language versions.
 - Deleting an article removes its translations and dependent references/revisions through the schema's cascade rules. Category deletion is intentionally not exposed in this first admin version.
-- The schema has reference records, but this initial editor does not yet provide a dedicated references editor; it preserves existing references when editing other translation fields.
+- References can be edited per language as a JSON array with `title`, `citation`, `url`, and `sortOrder` fields.
 - Before production, consider replacing Basic authentication with a full user/session system, HTTPS-only access, and role-based authorization.
