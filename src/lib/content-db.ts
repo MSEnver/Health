@@ -58,6 +58,13 @@ export async function getHealthNotesFromDb(
         english?.description ??
         undefined,
       body: selected?.body ?? english?.body ?? undefined,
+      introduction: selected?.introduction ?? english?.introduction ?? undefined,
+      purpose: selected?.purpose ?? english?.purpose ?? undefined,
+      contentBlocks: selected?.contentBlocks ?? english?.contentBlocks ?? undefined,
+      materials: selected?.materials ?? english?.materials ?? undefined,
+      instructions: selected?.instructions ?? english?.instructions ?? undefined,
+      precautions: selected?.precautions ?? english?.precautions ?? undefined,
+      healthNoticeOverride: selected?.healthNoticeOverride ?? english?.healthNoticeOverride ?? undefined,
       spiritualGoal:
         selected?.spiritualGoal ??
         english?.spiritualGoal ??
@@ -79,4 +86,9 @@ export async function getHealthNotesFromDb(
 
     return note as unknown as HealthNote;
   });
+}
+
+export async function getSharedHealthNotice(): Promise<string> {
+  const setting = await prisma.siteSetting.findUnique({ where: { key: "health_notice" } });
+  return typeof setting?.value === "string" ? setting.value : "";
 }
