@@ -7,7 +7,20 @@ import type { HealthNote } from '@/lib/types';
 import { isRtlLocale } from '@/lib/locale';
 import { ContentCard } from './content-card';
 const featuredIds = ['h-1', 'h-2', 'sp-1', 'hom-1', 'j-1', 'c-3'];
-export function Dashboard({ initialNotes }: { initialNotes: HealthNote[] }) {
+function structuredValues(value: unknown): string[] {
+  if (value == null || value === "") return [];
+  const values = Array.isArray(value) ? value : [value];
+  return values.map((item) => {
+    if (typeof item === "string" || typeof item === "number") return String(item);
+    if (item && typeof item === "object") {
+      const record = item as Record<string, unknown>;
+      return String(record.text ?? record.content ?? record.instruction ?? record.name ?? record.description ?? JSON.stringify(record));
+    }
+    return String(item);
+  }).filter(Boolean);
+}
+
+export function Dashboard({ initialNotes, healthNotice }: { initialNotes: HealthNote[]; healthNotice: string }) {
   const locale = useLocale(); const t = useTranslations();
   const source = initialNotes;
   const [query, setQuery] = useState(''); const [category, setCategory] = useState('all'); const [sitting, setSitting] = useState('all');
@@ -52,6 +65,11 @@ export function Dashboard({ initialNotes }: { initialNotes: HealthNote[] }) {
     
     
     <footer className="site-footer"><div className="footer-brand"><span className="brand-mark"><Leaf size={22}/></span><strong>{t('brand.name')}</strong></div><p>{t('footer.notice')}</p><span>© {new Date().getFullYear()} HealthGuide · Archive edition</span></footer>
-    {selected && <div className="modal-backdrop" role="presentation" onClick={() => setSelected(null)}><section className="detail-modal" role="dialog" aria-modal="true" aria-labelledby="detail-title" onClick={e => e.stopPropagation()}><div className="modal-topline"><span>{t(`categories.${selected.category}` as never)}</span><button className="icon-button" onClick={() => setSelected(null)} aria-label={t('detail.close')}><X size={20}/></button></div><h2 id="detail-title" dir={isRtlLocale(locale) ? 'rtl' : 'auto'}>{titleFor(selected)}</h2><div className="detail-meta"><span>{t('quick.sittingLabel')} {selected.sitting.replace(/^Sitting\s*/i, '')}</span>{selected.date && <span>{selected.date}</span>}</div><p className="detail-body" dir={isRtlLocale(locale) ? 'rtl' : 'auto'}>{summaryFor(selected)}</p>{selected.spiritualGoal && <div className="detail-callout"><strong>{t('sections.purpose')}</strong><p>{selected.localized?.[locale]?.spiritualGoal || selected.spiritualGoal}</p></div>}{selected.nameDetails && <dl className="name-details">{Object.entries(selected.nameDetails).filter(([,v])=>v !== undefined).map(([k,v])=><div key={k}><dt>{k}</dt><dd>{String(v)}</dd></div>)}</dl>}{(selected.localized?.[locale]?.body || (locale === 'ur' ? selected.body : selected.body)) && (selected.localized?.[locale]?.body || selected.body) !== summaryFor(selected) && <p className="detail-body" dir={isRtlLocale(locale) ? 'rtl' : 'auto'}>{selected.localized?.[locale]?.body || selected.body}</p>}<div className="health-disclaimer"><strong>{t('detail.medicalNotice')}</strong><p>{t('detail.medicalNoticeText')}</p></div><button className="search-submit modal-save" onClick={() => favoriteToggle(selected.id)}><HeartPulse size={16}/>{favorites.includes(selected.id) ? t('detail.unbookmark') : t('detail.bookmark')}</button></section></div>}
+    {selected && <div className="modal-backdrop" role="presentation" onClick={() => setSelected(null)}><section className="detail-modal" role="dialog" aria-modal="true" aria-labelledby="detail-title" onClick={e => e.stopPropagation()}><div className="modal-topline"><span>{t(`categories.${selected.category}` as never)}</span><button className="icon-button" onClick={() => setSelected(null)} aria-label={t('detail.close')}><X size={20}/></button></div><h2 id="detail-title" dir={isRtlLocale(locale) ? 'rtl' : 'auto'}>{titleFor(selected)}</h2><div className="detail-meta"><span>{t('quick.sittingLabel')} {selected.sitting.replace(/^Sitting\s*/i, '')}</span>{selected.date && <span>{selected.date}</span>}</div><p className="detail-body" dir={isRtlLocale(locale) ? 'rtl' : 'auto'}>{summaryFor(selected)}</p>
+      {selected.introduction && <section className="detail-body"><h3>Introduction</h3><p>{selected.introduction}</p></section>}
+      {Array.isArray(selected.contentBlocks) && selected.contentBlocks.map((raw, index) => { const block = raw && typeof raw === "object" ? raw as Record<string, unknown> : { text: String(raw) }; const heading = String(block.heading ?? block.title ?? ""); const body = String(block.text ?? block.content ?? block.body ?? ""); return <section className="detail-body" key={index}>{heading && <h3>{heading}</h3>}{body && <p>{body}</p>}</section>; })}
+      {selected.purpose && <div className="detail-callout"><strong>{t('sections.purpose')}</strong><p>{selected.purpose}</p></div>}
+      {selected.spiritualGoal && <div className="detail-callout"><strong>{t('sections.purpose')}</strong><p>{selected.localized?.[locale]?.spiritualGoal || selected.spiritualGoal}</p></div>}
+      {([["Materials",selected.materials],["Instructions",selected.instructions],["Precautions",selected.precautions]] as [string,unknown][]).map(([heading,value]) => { const values = structuredValues(value); return values.length ? <section className="detail-body" key={heading}><h3>{heading}</h3><ul>{values.map((item,index)=><li key={index}>{item}</li>)}</ul></section> : null; })}{selected.nameDetails && <dl className="name-details">{Object.entries(selected.nameDetails).filter(([,v])=>v !== undefined).map(([k,v])=><div key={k}><dt>{k}</dt><dd>{String(v)}</dd></div>)}</dl>}{(selected.localized?.[locale]?.body || (locale === 'ur' ? selected.body : selected.body)) && (selected.localized?.[locale]?.body || selected.body) !== summaryFor(selected) && <p className="detail-body" dir={isRtlLocale(locale) ? 'rtl' : 'auto'}>{selected.localized?.[locale]?.body || selected.body}</p>}<div className="health-disclaimer"><strong>{t('detail.medicalNotice')}</strong><p>{selected.healthNoticeOverride || healthNotice || t('detail.medicalNoticeText')}</p></div>{selected.references?.length ? <section className="detail-body"><h3>References</h3><ul>{selected.references.map((reference,index)=><li key={index}>{reference.url ? <a href={reference.url} target="_blank" rel="noreferrer">{reference.title || reference.citation || reference.url}</a> : <>{reference.title && <strong>{reference.title} </strong>}{reference.citation}</>}</li>)}</ul></section> : null}<button className="search-submit modal-save" onClick={() => favoriteToggle(selected.id)}><HeartPulse size={16}/>{favorites.includes(selected.id) ? t('detail.unbookmark') : t('detail.bookmark')}</button></section></div>}
   </>;
 }
