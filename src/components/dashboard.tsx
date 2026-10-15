@@ -3,7 +3,8 @@ import { useEffect, useMemo, useState } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import { ArrowRight, HeartPulse, Leaf, Search, ShieldCheck, Sparkles, X } from 'lucide-react';
 import type { HealthNote } from '@/lib/types';
-import { getHealthNotes, isRtlLocale } from '@/lib/content';
+import { getHealthNotes } from '@/lib/content';
+import { isRtlLocale } from '@/lib/locale';
 import { ContentCard } from './content-card';
 const featuredIds = ['h-1', 'h-2', 'sp-1', 'hom-1', 'j-1', 'c-3'];
 export function Dashboard() {
