@@ -1,0 +1,52 @@
+[
+  {
+    "id": "c-1",
+    "sitting": "Sitting 6",
+    "date": "Sept 20, 2026",
+    "category": "Cardiovascular",
+    "title": "Thick Blood vs. Cholesterol (Stroke & Paralysis Prevention)",
+    "description": "Arterial blockage, stroke (Falaj), and heart attacks are caused by excessively thick blood forming clots in brain and heart pathways—cholesterol alone is not the primary culprit. Keeping blood naturally thin is key to survival.",
+    "tags": [
+      "thick blood",
+      "stroke",
+      "paralysis",
+      "heart attack",
+      "clot prevention"
+    ],
+    "body": "Arterial blockage, stroke (Falaj), and heart attacks are caused by excessively thick blood forming clots in brain and heart pathways—cholesterol alone is not the primary culprit. Keeping blood naturally thin is key to survival.",
+    "urduText": "خون کو پتلا رکھیں، گاڑھا خون فالج اور دل کے دورے کا باعث بنتا ہے جبکہ کولیسٹرول اصل دشمن نہیں ہے۔"
+  },
+  {
+    "id": "c-2",
+    "sitting": "Sitting 6",
+    "date": "Sept 20, 2026",
+    "category": "Cardiovascular",
+    "title": "Herbal Blood Thinning Protocol (Haldi, Saunf & Mulatthi)",
+    "description": "Blend Turmeric (Haldi), Fennel (Saunf), Licorice (Mulatthi), Ginger, and Garlic to naturally thin thick blood. Take for 1 week and pause for 1 week. Can be continued for 1 month up to 6 months based on condition.",
+    "tags": [
+      "blood thinner",
+      "turmeric",
+      "ginger",
+      "garlic",
+      "stroke prevention"
+    ],
+    "body": "Blend Turmeric (Haldi), Fennel (Saunf), Licorice (Mulatthi), Ginger, and Garlic to naturally thin thick blood. Take for 1 week and pause for 1 week. Can be continued for 1 month up to 6 months based on condition.",
+    "urduText": "ہلدی، سونف اور ملٹھی کا آمیزہ خون کو پتلا کرتا ہے۔ ایک ہفتہ استعمال کریں اور ایک ہفتہ وقفہ دیں۔"
+  },
+  {
+    "id": "c-3",
+    "sitting": "Sitting 6",
+    "date": "Sept 20, 2026",
+    "category": "Cardiovascular",
+    "title": "Dietary Warnings for High Blood Pressure & Stroke Patients",
+    "description": "Patients at risk of stroke or recovering from paralysis must strictly avoid commercial broiler chicken and pigeon meat due to their extremely hot nature. Limit mutton to once a week in light broth (Yakhni) and emphasize vegetables.",
+    "tags": [
+      "stroke diet",
+      "broiler warning",
+      "hot nature foods",
+      "blood pressure"
+    ],
+    "body": "Patients at risk of stroke or recovering from paralysis must strictly avoid commercial broiler chicken and pigeon meat due to their extremely hot nature. Limit mutton to once a week in light broth (Yakhni) and emphasize vegetables.",
+    "urduText": "فالج کے مریض کے لیے مرغی (برائلر) اور کبوتر کا گوشت انتہائی خطرناک ہے کیونکہ ان کی تاثیر گرم ہے۔"
+  }
+]
