@@ -12,5 +12,5 @@ export default async function LocaleLayout({ children, params }: { children: Rea
   if (!hasLocale(routing.locales, locale)) notFound();
   setRequestLocale(locale);
   const messages = await getMessages();
-  return <html lang={locale} dir={locale === 'ur' ? 'rtl' : 'ltr'} suppressHydrationWarning><body><NextIntlClientProvider messages={messages}><ThemeProvider><div className="site-shell"><Header/><main className="app-main">{children}</main></div></ThemeProvider></NextIntlClientProvider></body></html>;
+  return <html lang={locale} dir={['ur', 'pa-Arab', 'skr', 'sd'].includes(locale) ? 'rtl' : 'ltr'} suppressHydrationWarning><body><NextIntlClientProvider messages={messages}><ThemeProvider><div className="site-shell"><Header/><main className="app-main">{children}</main></div></ThemeProvider></NextIntlClientProvider></body></html>;
 }
