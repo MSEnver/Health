@@ -1,0 +1,11 @@
+Font attribution and license notice
+
+The supplied font package identifies OnlineWebFonts.com as the source and states that web fonts are licensed under Creative Commons Attribution 4.0 (CC BY 4.0).
+
+Required attribution:
+Fonts made from Web Fonts is licensed by CC BY 4.0.
+Source: https://www.onlinewebfonts.com
+
+The supplied package also warns that some fonts may be trial versions, may have limited character sets, or may restrict embedding unless a commercial license is purchased. Verify the specific font's terms before production deployment.
+
+This notice preserves the attribution and caveats supplied with the font download.
