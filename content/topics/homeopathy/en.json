@@ -1,0 +1,70 @@
+[
+  {
+    "id": "hom-1",
+    "sitting": "Sitting 3",
+    "date": "June 21 / 27",
+    "category": "Homeopathy",
+    "title": "Arnica Montana: Trauma, Muscle Soreness & Scalp Circulation",
+    "description": "Arnica Montana is the premier homeopathic remedy for physical shock, blunt force trauma, muscle strain, and improving blood micro-circulation in scalp tissues.",
+    "tags": [
+      "arnica",
+      "homeopathy",
+      "trauma",
+      "muscle pain",
+      "scalp circulation"
+    ],
+    "body": "Arnica Montana is the premier homeopathic remedy for physical shock, blunt force trauma, muscle strain, and improving blood micro-circulation in scalp tissues.",
+    "urduText": "آرنیکا مونٹانا - چوٹ، پٹھوں کا درد اور سر کی جلد میں خون کی گردش۔"
+  },
+  {
+    "id": "hom-2",
+    "sitting": "Sitting 3",
+    "date": "June 21 / 27",
+    "category": "Homeopathy",
+    "title": "Nux Vomica: Digestive Relief, Chemical Overload & Stress Acidity",
+    "description": "Indicated for digestive disturbances, toxic overload from chemical drugs or synthetic products, chronic constipation, and stress-induced gastric acidity.",
+    "tags": [
+      "nux vomica",
+      "homeopathy",
+      "digestion",
+      "detox",
+      "acidity"
+    ],
+    "body": "Indicated for digestive disturbances, toxic overload from chemical drugs or synthetic products, chronic constipation, and stress-induced gastric acidity.",
+    "urduText": "نکس وومیکا - معدے کی خرابی، کیمیکل شیمپو اور دوائیوں کے بعد۔"
+  },
+  {
+    "id": "hom-3",
+    "sitting": "Sitting 4",
+    "date": "July 04 / 05",
+    "category": "Homeopathy",
+    "title": "Rhus Toxicodendron: Joint Pain, Stiffness & Sciatica",
+    "description": "Key remedy for joint inflammation, sciatic nerve stiffness that improves with continuous gentle movement, and tendon pain.",
+    "tags": [
+      "rhus tox",
+      "homeopathy",
+      "joint pain",
+      "sciatica",
+      "stiffness"
+    ],
+    "body": "Key remedy for joint inflammation, sciatic nerve stiffness that improves with continuous gentle movement, and tendon pain.",
+    "urduText": "رس ٹاکس - جوڑوں کا درد، جکڑن اور سائیٹیکا۔"
+  },
+  {
+    "id": "hom-4",
+    "sitting": "Sitting 5",
+    "date": "July 11 / 12",
+    "category": "Homeopathy",
+    "title": "Sulphur: Skin Dryness, Eczema & Scalp Irritation",
+    "description": "Addresses deep-seated skin disorders, winter skin scaling, eczema, and intense scalp itching accompanied by redness or dry dandruff.",
+    "tags": [
+      "sulphur",
+      "homeopathy",
+      "skin care",
+      "dandruff",
+      "eczema"
+    ],
+    "body": "Addresses deep-seated skin disorders, winter skin scaling, eczema, and intense scalp itching accompanied by redness or dry dandruff.",
+    "urduText": "سلفر - جلد کی خشکی، خارش اور خارش زدہ سکرائی۔"
+  }
+]
