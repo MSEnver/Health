@@ -318,7 +318,7 @@ export function AdminCms() {
 
   return <main style={css.page}>
     {view === "editor" ? <>
-      {pageHeader("HEALTHGUIDE / ARTICLES", topicId ? "Edit article" : "New article", "Edit content and translations. Changes are saved to the existing database record.", <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}><button style={css.button} onClick={() => { setView("list"); notify(""); }}>Cancel</button><button style={css.primary} disabled={busy} onClick={() => void saveTopic()}>{busy ? "Saving…" : "Save article"}</button></div>)}
+      {pageHeader("HEALTHGUIDE / ARTICLES", topicId ? "Edit article" : "New article", "Edit article metadata and localized content. Each language has one set of translation fields.", <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}><button style={css.button} onClick={() => { setView("list"); notify(""); }}>Cancel</button><button style={css.primary} disabled={busy} onClick={() => void saveTopic()}>{busy ? "Saving…" : "Save article"}</button></div>)}
       <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 18 }}>
         {sectionButton("content", "Basic information & content")}
         {sectionButton("translations", "Translations")}
@@ -327,7 +327,7 @@ export function AdminCms() {
       <section style={css.card}>
         {section === "content" && <>
           <h2 style={{ margin: "0 0 6px", fontSize: 19 }}>Basic information</h2>
-          <p style={{ ...css.muted, marginTop: 0 }}>Article identity, placement, and publication settings.</p>
+          <p style={{ ...css.muted, marginTop: 0 }}>Article identity, category placement, and publication settings. Text content is managed only in Translations.</p>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(200px,1fr))", gap: 14, marginBottom: 24 }}>
             <Field label="Article ID" value={topicMeta.id} disabled={Boolean(topicId)} onChange={(value) => setTopicMeta({ ...topicMeta, id: value })} required />
             <label style={css.label}>Category *<select style={inputStyle} value={topicMeta.categoryId} onChange={(event) => setTopicMeta({ ...topicMeta, categoryId: event.target.value })}>{data?.categories.map((category) => <option key={category.id} value={category.id}>{category.translations.find((item) => item.locale === "en")?.name || category.id}{category.enabled ? "" : " (disabled)"}</option>)}</select></label>
@@ -335,17 +335,6 @@ export function AdminCms() {
             <Field label="Date label" value={topicMeta.date} onChange={(value) => setTopicMeta({ ...topicMeta, date: value })} hint="Keep the existing display format if this is already used on the site." />
             <Field label="Sort order" value={String(topicMeta.sortOrder)} onChange={(value) => setTopicMeta({ ...topicMeta, sortOrder: Number(value) || 0 })} />
             <label style={css.label}>Publication status<select style={inputStyle} value={topicMeta.published ? "published" : "draft"} onChange={(event) => setTopicMeta({ ...topicMeta, published: event.target.value === "published" })}><option value="draft">Draft / unpublished</option><option value="published">Published</option></select></label>
-          </div>
-          <h2 style={{ margin: "0 0 6px", fontSize: 19 }}>English content</h2>
-          <p style={{ ...css.muted, marginTop: 0 }}>English is required. Switch to the Translations section to edit other languages.</p>
-          <div style={{ display: "grid", gap: 16 }}>
-            <Field label="Title" required value={translations.en?.title ?? ""} onChange={(value) => setTranslations((old) => ({ ...old, en: { ...old.en, title: value } }))} />
-            <Field label="Short description" value={translations.en?.description ?? ""} multiline rows={3} onChange={(value) => setTranslations((old) => ({ ...old, en: { ...old.en, description: value } }))} />
-            <Field label="Introduction" value={translations.en?.introduction ?? ""} multiline rows={4} onChange={(value) => setTranslations((old) => ({ ...old, en: { ...old.en, introduction: value } }))} />
-            <Field label="Main body" value={translations.en?.body ?? ""} multiline rows={10} onChange={(value) => setTranslations((old) => ({ ...old, en: { ...old.en, body: value } }))} />
-            <Field label="Purpose" value={translations.en?.purpose ?? ""} multiline rows={4} onChange={(value) => setTranslations((old) => ({ ...old, en: { ...old.en, purpose: value } }))} />
-            <Field label="Spiritual goal" value={translations.en?.spiritualGoal ?? ""} multiline rows={4} onChange={(value) => setTranslations((old) => ({ ...old, en: { ...old.en, spiritualGoal: value } }))} />
-            <Field label="Article-specific health notice" value={translations.en?.healthNoticeOverride ?? ""} multiline rows={3} onChange={(value) => setTranslations((old) => ({ ...old, en: { ...old.en, healthNoticeOverride: value } }))} />
           </div>
         </>}
         {section === "translations" && <>
@@ -365,6 +354,7 @@ export function AdminCms() {
             <Field label="Main body" value={activeTranslation.body} multiline rows={10} onChange={(value) => setField("body", value)} />
             <Field label="Purpose" value={activeTranslation.purpose} multiline rows={3} onChange={(value) => setField("purpose", value)} />
             <Field label="Spiritual goal" value={activeTranslation.spiritualGoal} multiline rows={3} onChange={(value) => setField("spiritualGoal", value)} />
+            <Field label="Article-specific health notice" value={activeTranslation.healthNoticeOverride} multiline rows={3} onChange={(value) => setField("healthNoticeOverride", value)} hint="Optional localized override. Leave blank to use the shared notice from Settings." />
           </div>
         </>}
         {section === "references" && <>
