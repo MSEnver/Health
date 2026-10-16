@@ -5,7 +5,6 @@ import { getMessages, setRequestLocale } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Header } from '@/components/header';
-import '../globals.css';
 import { getLocaleConfig } from '@/lib/locale';
 export function generateStaticParams() { return routing.locales.map(locale => ({ locale })); }
 export default async function LocaleLayout({ children, params }: { children: ReactNode; params: Promise<{ locale: string }> }) {
