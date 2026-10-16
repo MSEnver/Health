@@ -22,14 +22,16 @@ export async function getHealthNotesFromDb(
   }
 
   const topics = await prisma.topic.findMany({
-    where: { published: true },
+    where: { published: true, category: { enabled: true } },
     orderBy: [
       { category: { sortOrder: "asc" } },
       { sortOrder: "asc" },
     ],
     include: {
+      category: { include: { translations: { where: { locale: { in: locale === "en" ? ["en"] : [locale, "en"] } } } } },
       translations: {
         where: { locale: { in: locale === "en" ? ["en"] : [locale, "en"] } },
+        include: { references: { orderBy: { sortOrder: "asc" } } },
       },
     },
   });
@@ -51,13 +53,21 @@ export async function getHealthNotesFromDb(
       id: topic.id,
       sitting: topic.sitting ?? "Sitting",
       date: topic.date ?? undefined,
-      category: topic.categoryId,
+      category: String(englishLegacy.category ?? selectedLegacy.category ?? topic.categoryId),
+      categoryLabel: topic.category.translations.find((item) => item.locale === locale)?.name ?? topic.category.translations.find((item) => item.locale === "en")?.name ?? String(englishLegacy.category ?? topic.categoryId),
       title: selected?.title ?? english?.title ?? String(englishLegacy.title ?? topic.id),
       description:
         selected?.description ??
         english?.description ??
         undefined,
       body: selected?.body ?? english?.body ?? undefined,
+      introduction: selected?.introduction ?? english?.introduction ?? undefined,
+      purpose: selected?.purpose ?? english?.purpose ?? undefined,
+      contentBlocks: selected?.contentBlocks ?? english?.contentBlocks ?? undefined,
+      materials: selected?.materials ?? english?.materials ?? undefined,
+      instructions: selected?.instructions ?? english?.instructions ?? undefined,
+      precautions: selected?.precautions ?? english?.precautions ?? undefined,
+      healthNoticeOverride: selected?.healthNoticeOverride ?? english?.healthNoticeOverride ?? undefined,
       spiritualGoal:
         selected?.spiritualGoal ??
         english?.spiritualGoal ??
@@ -79,4 +89,9 @@ export async function getHealthNotesFromDb(
 
     return note as unknown as HealthNote;
   });
+}
+
+export async function getSharedHealthNotice(): Promise<string> {
+  const setting = await prisma.siteSetting.findUnique({ where: { key: "health_notice" } });
+  return typeof setting?.value === "string" ? setting.value : "";
 }
