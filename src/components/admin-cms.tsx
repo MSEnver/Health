@@ -110,7 +110,6 @@ const css: Record<string, CSSProperties> = {
   card: { border: "1px solid #dce4ec", borderRadius: 13, padding: 18, background: "#fff" },
   pill: { display: "inline-flex", alignItems: "center", gap: 5, borderRadius: 999, padding: "4px 8px", fontSize: 11, fontWeight: 700, whiteSpace: "nowrap" },
 };
-const button = (primary = false, danger = false): CSSProperties => danger ? css.danger : primary ? css.primary : css.button;
 const inputStyle: CSSProperties = css.input;
 
 function Field({ label, value, onChange, disabled = false, required = false, multiline = false, rows = 4, hint }: {
@@ -147,6 +146,7 @@ export function AdminCms() {
   const [categoryMeta, setCategoryMeta] = useState({ id: "", slug: "", enabled: true, sortOrder: 0 });
   const [categoryTranslations, setCategoryTranslations] = useState<Record<string, { name: string; description: string }>>({});
   const [categoryLocale, setCategoryLocale] = useState("en");
+  const [categoryEditorOpen, setCategoryEditorOpen] = useState(false);
   const [view, setView] = useState<"list" | "editor">("list");
 
   const notify = (text: string, error = false) => { setMessage(text); setMessageError(error); };
@@ -267,7 +267,6 @@ export function AdminCms() {
     setCategoryTranslations(mapped); setCategoryLocale("en");
     setTab("categories"); setView("list"); setCategoryEditorOpen(true); notify("");
   };
-  const [categoryEditorOpen, setCategoryEditorOpen] = useState(false);
 
   const saveCategory = async () => {
     setBusy(true); notify("");
