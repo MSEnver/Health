@@ -136,6 +136,19 @@ model AuditLog {
   @@index([userId, createdAt])
 }
 
+model IntakeBatch {
+  id             String   @id @default(cuid())
+  name           String
+  sourceFileName String?
+  sourceText     String?
+  status         String   @default("DRAFT")
+  data           Json
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@index([status, updatedAt])
+}
+
 model SiteSetting {
   key         String   @id
   value       Json

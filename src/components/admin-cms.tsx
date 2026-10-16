@@ -37,6 +37,8 @@ type Payload = {
 type Section = "content" | "translations" | "references" | "advanced";
 
 const locales = [...SUPPORTED_LOCALES];
+const localeNames: Record<string, string> = { en: "English", ur: "اردو", ps: "پښتو", "pa-Arab": "پنجابی (شاہ مکھی)", hi: "हिन्दी", pa: "ਪੰਜਾਬੀ (ਗੁਰਮੁਖੀ)", skr: "سرائیکی", sd: "سنڌي", eo: "Esperanto" };
+const localeNativeNames: Record<string, string> = { en: "English", ur: "اردو", ps: "پښتو", "pa-Arab": "پنجابی (شاہ مکھی)", hi: "हिन्दी", pa: "ਪੰਜਾਬੀ (ਗੁਰਮੁਖੀ)", skr: "سرائیکی", sd: "سنڌي", eo: "Esperanto" };
 const jsonFields = ["contentBlocks", "materials", "instructions", "precautions", "nameDetails", "legacyData", "references"];
 const blankTranslation = (): EditorTranslation => ({
   title: "", description: "", introduction: "", body: "", contentBlocks: "[]",
@@ -307,7 +309,7 @@ export function AdminCms() {
   const setField = (key: string, value: string) => setTranslations((old) => ({ ...old, [locale]: { ...old[locale], [key]: value } }));
   const activeTranslation = translations[locale] ?? blankTranslation();
   const localeHasTitle = (language: string) => Boolean(translations[language]?.title?.trim());
-  const navItems: ["overview" | "articles" | "categories" | "settings", string][] = [["overview", "Overview"], ["articles", "Articles"], ["categories", "Categories"], ["settings", "Settings"]];
+  const navItems: ["overview" | "articles" | "categories" | "settings", string][] = [["overview", "Overview"], ["categories", "Categories"], ["articles", "Articles"], ["settings", "Settings"]];
 
   const pageHeader = (eyebrow: string, title: string, description: string, action?: ReactNode) => (
     <header style={css.header}><div><p style={css.eyebrow}>{eyebrow}</p><h1 style={css.h1}>{title}</h1><p style={{ ...css.muted, margin: "8px 0 0" }}>{description}</p></div>{action}</header>
@@ -321,7 +323,6 @@ export function AdminCms() {
         {sectionButton("content", "Basic information & content")}
         {sectionButton("translations", "Translations")}
         {sectionButton("references", "References & tags")}
-        {sectionButton("advanced", "Advanced data")}
       </div>
       <section style={css.card}>
         {section === "content" && <>
@@ -351,10 +352,10 @@ export function AdminCms() {
           <h2 style={{ margin: "0 0 6px", fontSize: 19 }}>Language translations</h2>
           <p style={{ ...css.muted, marginTop: 0 }}>Choose a language. A dot indicates that a title exists for that language. Saving preserves translations with a title.</p>
           <div style={{ display: "flex", gap: 7, flexWrap: "wrap", marginBottom: 20 }}>
-            {locales.map((language) => <button key={language} style={locale === language ? css.primary : css.button} onClick={() => setLocale(language)}>{language} {localeHasTitle(language) ? "●" : "○"}</button>)}
+            {locales.map((language) => <button key={language} style={locale === language ? css.primary : css.button} onClick={() => setLocale(language)}>{localeNames[language] ?? language} {localeHasTitle(language) ? "●" : "○"}</button>)}
           </div>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10, flexWrap: "wrap", marginBottom: 16 }}>
-            <h3 style={{ margin: 0, fontSize: 16 }}>{locale.toUpperCase()} translation</h3>
+            <h3 style={{ margin: 0, fontSize: 16 }}>{localeNames[locale] ?? locale} translation</h3>
             <span style={{ ...css.pill, background: localeHasTitle(locale) ? "#e8f7ee" : "#f1f5f9", color: localeHasTitle(locale) ? "#17633a" : "#64748b" }}>{localeHasTitle(locale) ? "Title present" : "Not yet translated"}</span>
           </div>
           <div style={{ display: "grid", gap: 16 }}>
@@ -364,11 +365,6 @@ export function AdminCms() {
             <Field label="Main body" value={activeTranslation.body} multiline rows={10} onChange={(value) => setField("body", value)} />
             <Field label="Purpose" value={activeTranslation.purpose} multiline rows={3} onChange={(value) => setField("purpose", value)} />
             <Field label="Spiritual goal" value={activeTranslation.spiritualGoal} multiline rows={3} onChange={(value) => setField("spiritualGoal", value)} />
-            <Field label="Urdu text" value={activeTranslation.urduText} multiline rows={3} onChange={(value) => setField("urduText", value)} />
-            <Field label="Urdu content" value={activeTranslation.urdu} multiline rows={4} onChange={(value) => setField("urdu", value)} />
-            <Field label="English description" value={activeTranslation.englishDescription} multiline rows={3} onChange={(value) => setField("englishDescription", value)} />
-            <Field label="Display title" value={activeTranslation.displayTitle} onChange={(value) => setField("displayTitle", value)} />
-            <Field label="Article-specific health notice" value={activeTranslation.healthNoticeOverride} multiline rows={3} onChange={(value) => setField("healthNoticeOverride", value)} />
           </div>
         </>}
         {section === "references" && <>
@@ -377,18 +373,6 @@ export function AdminCms() {
           <div style={{ display: "grid", gap: 16 }}>
             <Field label="Tags" value={activeTranslation.tags} onChange={(value) => setField("tags", value)} hint="Example: prevention, nutrition, wellness" />
             <Field label="References (JSON)" value={activeTranslation.references} multiline rows={10} onChange={(value) => setField("references", value)} hint={'Example: [{"title":"Source","citation":"Author, year","url":"https://…","sortOrder":0}]'} />
-          </div>
-        </>}
-        {section === "advanced" && <>
-          <h2 style={{ margin: "0 0 6px", fontSize: 19 }}>Advanced structured data</h2>
-          <p style={{ ...css.muted, marginTop: 0 }}>These fields are stored as JSON. Edit only if you understand the existing structure. Invalid JSON prevents saving.</p>
-          <div style={{ display: "grid", gap: 16 }}>
-            <Field label="Content blocks (JSON)" value={activeTranslation.contentBlocks} multiline rows={8} onChange={(value) => setField("contentBlocks", value)} />
-            <Field label="Materials (JSON)" value={activeTranslation.materials} multiline rows={5} onChange={(value) => setField("materials", value)} />
-            <Field label="Instructions (JSON)" value={activeTranslation.instructions} multiline rows={5} onChange={(value) => setField("instructions", value)} />
-            <Field label="Precautions (JSON)" value={activeTranslation.precautions} multiline rows={5} onChange={(value) => setField("precautions", value)} />
-            <Field label="Name details (JSON)" value={activeTranslation.nameDetails} multiline rows={5} onChange={(value) => setField("nameDetails", value)} />
-            <Field label="Legacy data (JSON)" value={activeTranslation.legacyData} multiline rows={10} onChange={(value) => setField("legacyData", value)} hint="Preserved for compatibility with existing content. Do not remove keys unless you have checked how the public site uses them." />
           </div>
         </>}
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 10, flexWrap: "wrap", borderTop: "1px solid #e2e8f0", paddingTop: 18, marginTop: 24 }}>
@@ -472,9 +456,9 @@ export function AdminCms() {
             <Field label="Sort order" value={String(categoryMeta.sortOrder)} onChange={(value) => setCategoryMeta({ ...categoryMeta, sortOrder: Number(value) || 0 })} />
             <label style={css.label}>Status<select style={inputStyle} value={categoryMeta.enabled ? "enabled" : "disabled"} onChange={(event) => setCategoryMeta({ ...categoryMeta, enabled: event.target.value === "enabled" })}><option value="enabled">Enabled</option><option value="disabled">Disabled</option></select></label>
           </div>
-          <div style={{ display: "flex", gap: 7, flexWrap: "wrap", marginBottom: 16 }}>{locales.map((language) => <button key={language} style={categoryLocale === language ? css.primary : css.button} onClick={() => setCategoryLocale(language)}>{language} {categoryTranslations[language]?.name ? "●" : "○"}</button>)}</div>
-          <div style={{ display: "grid", gap: 14 }}><Field label={`${categoryLocale.toUpperCase()} category name`} required={categoryLocale === "en"} value={categoryTranslations[categoryLocale]?.name ?? ""} onChange={(value) => setCategoryTranslations((old) => ({ ...old, [categoryLocale]: { ...old[categoryLocale], name: value } }))} /><Field label="Description" value={categoryTranslations[categoryLocale]?.description ?? ""} multiline rows={3} onChange={(value) => setCategoryTranslations((old) => ({ ...old, [categoryLocale]: { ...old[categoryLocale], description: value } }))} /></div>
-          <div style={{ display: "flex", gap: 8, marginTop: 18 }}><button style={css.primary} disabled={busy} onClick={() => void saveCategory()}>{busy ? "Saving…" : "Save category"}</button><button style={css.button} onClick={() => setCategoryEditorOpen(false)}>Cancel</button></div>
+          <div style={{ display: "flex", gap: 7, flexWrap: "wrap", marginBottom: 16 }}>{locales.map((language) => <button key={language} style={categoryLocale === language ? css.primary : css.button} onClick={() => setCategoryLocale(language)}>{localeNativeNames[language] ?? language} {categoryTranslations[language]?.name ? "●" : "○"}</button>)}</div>
+          <div style={{ display: "grid", gap: 14 }}><Field label={`${localeNativeNames[categoryLocale] ?? categoryLocale} category name`} required={categoryLocale === "en"} value={categoryTranslations[categoryLocale]?.name ?? ""} onChange={(value) => setCategoryTranslations((old) => ({ ...old, [categoryLocale]: { ...old[categoryLocale], name: value } }))} /><Field label="Description" value={categoryTranslations[categoryLocale]?.description ?? ""} multiline rows={3} onChange={(value) => setCategoryTranslations((old) => ({ ...old, [categoryLocale]: { ...old[categoryLocale], description: value } }))} /></div>
+          <div style={{ display: "flex", justifyContent: "space-between", gap: 8, marginTop: 18 }}><button style={css.button} onClick={() => setCategoryEditorOpen(false)}>Cancel</button><button style={css.primary} disabled={busy} onClick={() => void saveCategory()}>{busy ? "Saving…" : "Save category"}</button></div>
         </section>}
         <div style={{ ...css.card, padding: 0, overflow: "hidden" }}><div style={{ overflowX: "auto" }}><table style={{ width: "100%", minWidth: 650, borderCollapse: "collapse", fontSize: 13 }}><thead><tr style={{ background: "#f8fafc", textAlign: "left", color: "#64748b" }}>{["Category", "Articles", "Translations", "Status", "Actions"].map((label) => <th key={label} style={{ padding: 13, borderBottom: "1px solid #e2e8f0" }}>{label}</th>)}</tr></thead><tbody>{data.categories.map((category) => <tr key={category.id}><td style={{ padding: 14, borderBottom: "1px solid #edf2f7" }}><strong>{category.translations.find((item) => item.locale === "en")?.name || category.id}</strong><div style={{ ...css.muted, fontSize: 11, marginTop: 4 }}>{category.id} · {category.slug} · order {category.sortOrder}</div></td><td style={{ padding: 14, borderBottom: "1px solid #edf2f7" }}>{data.topics.filter((topic) => topic.categoryId === category.id).length}</td><td style={{ padding: 14, borderBottom: "1px solid #edf2f7" }}>{category.translations.length}/{locales.length}</td><td style={{ padding: 14, borderBottom: "1px solid #edf2f7" }}><span style={{ ...css.pill, background: category.enabled ? "#e8f7ee" : "#f1f5f9", color: category.enabled ? "#17633a" : "#64748b" }}>{category.enabled ? "Enabled" : "Disabled"}</span></td><td style={{ padding: 14, borderBottom: "1px solid #edf2f7" }}><div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}><button style={{ ...css.button, padding: "7px 10px" }} onClick={() => openCategory(category)}>Edit</button><button style={{ ...css.button, padding: "7px 10px" }} disabled={busy} onClick={() => void updateCategory(category, { sortOrder: category.sortOrder - 1 })}>↑</button><button style={{ ...css.button, padding: "7px 10px" }} disabled={busy} onClick={() => void updateCategory(category, { sortOrder: category.sortOrder + 1 })}>↓</button><button style={{ ...css.button, padding: "7px 10px" }} disabled={busy} onClick={() => void updateCategory(category, { enabled: !category.enabled })}>{category.enabled ? "Disable" : "Enable"}</button></div></td></tr>)}</tbody></table></div></div>
       </>}
